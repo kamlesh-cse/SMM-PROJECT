@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Promotions | AMZN·PULSE Amazon Deal Engine</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+:root{--amazon:#FF9900;--amazon-deep:#cc7a00;--bg:#050608;--surface:#0f1117;--border:rgba(255,255,255,0.08);--text:#fff;--text-dim:#717d8a;--gold:#FFD700}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;
+  background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:40px 40px}
+
+header{position:fixed;top:0;width:100%;display:flex;justify-content:space-between;align-items:center;padding:18px 7%;background:rgba(5,6,8,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);z-index:1000}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:1.9rem;text-decoration:none;color:white;letter-spacing:1px}
+.logo span{color:var(--amazon);font-style:italic}
+nav a{text-decoration:none;color:var(--text);font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-left:28px;transition:.3s}
+nav a:hover{color:var(--amazon)}
+.login-btn{background:var(--amazon);color:#000;padding:8px 22px;border-radius:50px;font-weight:900}
+
+/* HERO */
+.hero{position:relative;height:75vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
+  background:linear-gradient(rgba(5,6,8,.65),var(--bg)),url('https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=2070') center/cover fixed;
+  clip-path:polygon(0 0,100% 0,100% 87%,0 100%);padding:80px 20px 0}
+.hero-eyebrow{color:var(--amazon);font-weight:900;text-transform:uppercase;letter-spacing:6px;margin-bottom:18px;font-size:.85rem;
+  background:rgba(255,153,0,.1);border:1px solid rgba(255,153,0,.3);padding:6px 20px;border-radius:50px}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,12vw,8rem);font-style:italic;line-height:.88;letter-spacing:-1px;margin-bottom:20px}
+.hero h1 span{color:var(--amazon)}
+.hero p{color:var(--text-dim);max-width:560px;font-size:1rem;margin-bottom:36px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.btn{padding:15px 32px;font-family:'Bebas Neue',sans-serif;font-size:1.3rem;text-decoration:none;border:none;cursor:pointer;transition:.4s;clip-path:polygon(8% 0,100% 0,92% 100%,0 100%)}
+.btn-filled{background:var(--amazon);color:#000}
+.btn-filled:hover{background:#ffb020}
+.btn-outline{background:transparent;color:white;border:1px solid var(--border)}
+.btn-outline:hover{border-color:var(--amazon);color:var(--amazon)}
+
+/* COUNTDOWN */
+.countdown-bar{background:var(--amazon);color:#000;text-align:center;padding:14px;font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:2px;display:flex;justify-content:center;align-items:center;gap:20px;flex-wrap:wrap}
+.countdown-timer{display:flex;gap:18px}
+.time-block{background:rgba(0,0,0,.25);padding:6px 16px;border-radius:8px;font-size:1.8rem}
+
+/* DEALS GRID */
+.section{padding:80px 8%}
+.section-head{margin-bottom:50px;border-left:4px solid var(--amazon);padding-left:22px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:14px}
+.section-head h2{font-family:'Bebas Neue',sans-serif;font-size:3rem;letter-spacing:1px}
+.section-head p{color:var(--text-dim);font-size:.88rem}
+.see-all{color:var(--amazon);font-size:.8rem;font-weight:800;text-decoration:none;text-transform:uppercase;letter-spacing:1px}
+.see-all:hover{text-decoration:underline}
+
+.grid{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.promo-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;position:relative;transition:.4s}
+.promo-card:hover{transform:scale(1.025);border-color:var(--amazon);box-shadow:0 20px 50px rgba(255,153,0,.12)}
+.promo-badge{position:absolute;top:18px;right:18px;background:var(--amazon);color:black;font-family:'Bebas Neue',sans-serif;padding:5px 16px;font-size:1.2rem;transform:skewX(-10deg);z-index:2}
+.promo-badge.gold{background:var(--gold)}
+.promo-badge.prime{background:#00A8E0;color:white}
+.promo-img{height:200px;overflow:hidden}
+.promo-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.75);transition:.5s}
+.promo-card:hover .promo-img img{transform:scale(1.08);filter:brightness(.9)}
+.promo-body{padding:26px}
+.promo-tag{font-size:.68rem;font-weight:800;color:var(--amazon);text-transform:uppercase;letter-spacing:2px;margin-bottom:10px}
+.promo-body h3{font-size:1.2rem;font-weight:900;margin-bottom:10px;line-height:1.3}
+.promo-body p{color:var(--text-dim);font-size:.86rem;margin-bottom:20px;line-height:1.5}
+.price-row{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.price-new{font-size:1.6rem;font-weight:900;color:var(--amazon)}
+.price-old{font-size:.95rem;color:var(--text-dim);text-decoration:line-through}
+.discount-pct{background:rgba(255,153,0,.15);color:var(--amazon);font-size:.72rem;font-weight:900;padding:3px 10px;border-radius:50px}
+.promo-cta{display:block;background:var(--amazon);color:#000;text-align:center;padding:13px;border-radius:8px;font-weight:900;text-decoration:none;font-size:.88rem;transition:.3s}
+.promo-cta:hover{background:#ffb020}
+
+/* DEAL TYPES */
+.deal-types{padding:0 8% 80px}
+.types-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.type-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:30px 22px;text-align:center;transition:.4s}
+.type-card:hover{border-color:var(--amazon);transform:translateY(-6px)}
+.type-icon{font-size:2.5rem;margin-bottom:16px;display:block}
+.type-card h3{font-size:1rem;font-weight:900;margin-bottom:10px}
+.type-card p{color:var(--text-dim);font-size:.82rem;line-height:1.5}
+
+/* PRIME DAY BANNER */
+.prime-banner{margin:0 8% 80px;padding:60px;border-radius:20px;
+  background:linear-gradient(135deg,#00A8E0,#0066CC);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:30px}
+.prime-banner h2{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;margin-bottom:10px}
+.prime-banner p{color:rgba(255,255,255,.8);max-width:480px;font-size:.95rem}
+.prime-cta{background:white;color:#0066CC;padding:16px 36px;border-radius:50px;font-weight:900;text-decoration:none;font-size:.95rem;white-space:nowrap;transition:.3s}
+.prime-cta:hover{background:#FFD700;color:#000}
+
+footer{background:#000;padding:40px 8%;text-align:center;color:var(--text-dim);font-size:.8rem;border-top:1px solid var(--border)}
+.floating-chatbot{position:fixed;bottom:30px;right:30px;width:60px;height:60px;background:var(--amazon);color:#000;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;z-index:9999;text-decoration:none;animation:pulse-chat 2s infinite}
+@keyframes pulse-chat{0%{box-shadow:0 0 0 0 rgba(255,153,0,.6)}70%{box-shadow:0 0 0 18px rgba(255,153,0,0)}100%{box-shadow:0 0 0 0 rgba(255,153,0,0)}}
+@media(max-width:768px){.types-grid{grid-template-columns:repeat(2,1fr)}.nav-links{display:none}.prime-banner{text-align:center}}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">AMZN<span>·PULSE</span></a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blog</a>
+    <a href="promotions.html">Promotions</a>
+    <a href="email.html">Email</a>
+    <a href="Contact.html">Contact</a>
+    <a href="login.html" class="login-btn">Dashboard</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-eyebrow">⚡ Live Deal Engine</div>
+  <h1>AMAZON<br><span>PROMO</span><br>MACHINE</h1>
+  <p>Lightning Deals, Prime Day campaigns, coupons, and sponsored ad strategies engineered to maximise your Amazon sales velocity.</p>
+  <div class="hero-cta">
+    <a href="#deals" class="btn btn-filled">View Live Deals</a>
+    <a href="login.html" class="btn btn-outline">Launch Campaign</a>
+  </div>
+</section>
+
+<div class="countdown-bar">
+  <span>⚡ NEXT LIGHTNING DEAL WINDOW:</span>
+  <div class="countdown-timer">
+    <span class="time-block" id="hours">04</span> :
+    <span class="time-block" id="mins">22</span> :
+    <span class="time-block" id="secs">00</span>
+  </div>
+  <span>— SUBMIT YOUR DEAL NOW</span>
+</div>
+
+<section class="section" id="deals">
+  <div class="section-head">
+    <div><h2>ACTIVE PROMOTIONS</h2><p>Live deals running across Amazon storefronts right now.</p></div>
+    <a href="#" class="see-all">View All →</a>
+  </div>
+  <div class="grid">
+    <div class="promo-card">
+      <span class="promo-badge">-45%</span>
+      <div class="promo-img"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=700" alt="Watch"></div>
+      <div class="promo-body">
+        <div class="promo-tag">⚡ Lightning Deal</div>
+        <h3>Smart Fitness Tracker Pro — Flash Sale</h3>
+        <p>Amazon's #1 bestseller in Fitness Trackers. Deal expires when 80% claimed.</p>
+        <div class="price-row"><span class="price-new">$34.99</span><span class="price-old">$63.99</span><span class="discount-pct">45% OFF</span></div>
+        <a href="#" class="promo-cta">Claim Deal on Amazon</a>
+      </div>
+    </div>
+    <div class="promo-card">
+      <span class="promo-badge prime">PRIME</span>
+      <div class="promo-img"><img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?q=80&w=700" alt="Headphones"></div>
+      <div class="promo-body">
+        <div class="promo-tag">👑 Prime Exclusive Deal</div>
+        <h3>Wireless Noise-Cancelling Headphones X7</h3>
+        <p>Exclusive pricing for Prime members. 40-hour battery, studio-grade audio.</p>
+        <div class="price-row"><span class="price-new">$79.00</span><span class="price-old">$129.00</span><span class="discount-pct">39% OFF</span></div>
+        <a href="#" class="promo-cta">Prime Members Only</a>
+      </div>
+    </div>
+    <div class="promo-card">
+      <span class="promo-badge gold">COUPON</span>
+      <div class="promo-img"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=700" alt="Skincare"></div>
+      <div class="promo-body">
+        <div class="promo-tag">🎟️ Clip & Save Coupon</div>
+        <h3>Premium Vitamin C Serum — 3-Pack Bundle</h3>
+        <p>Clip the coupon on the listing page for extra 20% off. Subscribe & Save available.</p>
+        <div class="price-row"><span class="price-new">$28.79</span><span class="price-old">$47.99</span><span class="discount-pct">40% OFF</span></div>
+        <a href="#" class="promo-cta">Clip Coupon & Buy</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="deal-types">
+  <div class="types-grid">
+    <div class="type-card">
+      <span class="type-icon">⚡</span>
+      <h3>Lightning Deals</h3>
+      <p>Time-limited promotions that appear in the Amazon Deals section. Drive massive sales velocity in hours.</p>
+    </div>
+    <div class="type-card">
+      <span class="type-icon">🎟️</span>
+      <h3>Coupon Campaigns</h3>
+      <p>Clip-on-page coupons that appear in search results with a green badge — boosting click-through rate by up to 30%.</p>
+    </div>
+    <div class="type-card">
+      <span class="type-icon">👑</span>
+      <h3>Prime Exclusive Deals</h3>
+      <p>Exclusive discounts visible only to Prime members — taps into Amazon's most loyal and high-spending customer base.</p>
+    </div>
+    <div class="type-card">
+      <span class="type-icon">📦</span>
+      <h3>Subscribe & Save</h3>
+      <p>Recurring revenue model. Reward loyal customers with 5–15% discounts on auto-replenishment orders.</p>
+    </div>
+  </div>
+</div>
+
+<div class="prime-banner">
+  <div>
+    <h2>PRIME DAY 2026 IS COMING</h2>
+    <p>Start your Prime Day campaign prep now. Inventory, bids, deals, and social amplification — all coordinated in one place.</p>
+  </div>
+  <a href="login.html" class="prime-cta">Start Prime Day Prep →</a>
+</div>
+
+<footer>© 2026 AMZN·PULSE — PROMOTIONS ENGINE</footer>
+<a href="chatbot.html" class="floating-chatbot"><i class="fa-solid fa-comment-dots"></i></a>
+
+<script>
+// Countdown timer
+function countdown(){
+  const d=new Date();let h=23-d.getHours(),m=59-d.getMinutes(),s=59-d.getSeconds();
+  document.getElementById('hours').textContent=String(h).padStart(2,'0');
+  document.getElementById('mins').textContent=String(m).padStart(2,'0');
+  document.getElementById('secs').textContent=String(s).padStart(2,'0');
+}
+countdown();setInterval(countdown,1000);
+
+const observer=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.style.opacity='1';x.target.style.transform='translateY(0)'}})},{threshold:0.1});
+document.querySelectorAll('.promo-card,.type-card').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(30px)';el.style.transition='0.6s ease';observer.observe(el)});
+</script>
+</body>
+</html>

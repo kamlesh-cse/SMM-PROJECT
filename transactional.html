@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transactional Emails | AMZN·PULSE Amazon Order Communications</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+:root{--amazon:#FF9900;--bg:#050608;--surface:#0f1117;--border:rgba(255,255,255,0.08);--text:#fff;--text-dim:#717d8a}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:40px 40px}
+header{position:fixed;top:0;width:100%;display:flex;justify-content:space-between;align-items:center;padding:18px 7%;background:rgba(5,6,8,.92);backdrop-filter:blur(20px);border-bottom:2px solid var(--amazon);z-index:1000}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:1.9rem;text-decoration:none;color:white;letter-spacing:1px}
+.logo span{color:var(--amazon)}
+nav a{text-decoration:none;color:var(--text-dim);font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-left:26px;transition:.3s}
+nav a:hover{color:var(--amazon)}
+.login-btn{background:var(--amazon);color:#000;padding:8px 22px;border-radius:50px;font-weight:900}
+
+.hero{position:relative;min-height:85vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:100px 7% 60px;background:linear-gradient(rgba(5,6,8,.6),var(--bg)),url('https://images.unsplash.com/photo-1596526131083-e8c633c948d2?q=80&w=2070') center/cover;clip-path:polygon(0 0,100% 0,100% 92%,0 100%)}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,14vw,9rem);line-height:.82;font-style:italic;filter:drop-shadow(0 0 20px rgba(255,153,0,.35));margin-bottom:14px}
+.hero h1 span{color:var(--amazon)}
+.hero-sub{color:var(--amazon);font-weight:900;text-transform:uppercase;letter-spacing:7px;margin-bottom:40px;background:rgba(0,0,0,.5);padding:5px 16px;font-size:.82rem}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.btn-p{background:var(--amazon);color:#000;padding:16px 32px;border-radius:50px;text-decoration:none;font-weight:900;font-size:.9rem;transition:.3s}
+.btn-p:hover{background:#ffb020}
+.btn-g{border:1px solid var(--border);color:white;padding:16px 32px;border-radius:50px;text-decoration:none;font-weight:700;font-size:.9rem;transition:.3s}
+.btn-g:hover{border-color:var(--amazon);color:var(--amazon)}
+
+/* TIMELINE */
+.timeline{padding:80px 8%}
+.timeline h2{font-family:'Bebas Neue',sans-serif;font-size:3rem;margin-bottom:10px}
+.timeline .sub{color:var(--text-dim);margin-bottom:50px;max-width:540px}
+.tl{position:relative;padding-left:60px}
+.tl::before{content:'';position:absolute;left:20px;top:0;bottom:0;width:2px;background:linear-gradient(var(--amazon),rgba(255,153,0,.1))}
+.tl-item{position:relative;margin-bottom:40px;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;transition:.4s}
+.tl-item:hover{border-color:var(--amazon)}
+.tl-dot{position:absolute;left:-49px;top:28px;width:20px;height:20px;border-radius:50%;background:var(--amazon);border:3px solid var(--bg)}
+.tl-time{color:var(--amazon);font-size:.7rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+.tl-item h3{font-size:1.05rem;font-weight:900;margin-bottom:10px}
+.tl-item p{color:var(--text-dim);font-size:.86rem;line-height:1.5;margin-bottom:14px}
+.tl-metrics{display:flex;gap:12px;flex-wrap:wrap}
+.metric{background:rgba(255,153,0,.1);color:var(--amazon);font-size:.68rem;font-weight:800;padding:4px 12px;border-radius:50px}
+
+/* WHY IT MATTERS */
+.why{padding:0 8% 80px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.why-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:32px;transition:.4s;text-align:center}
+.why-card:hover{border-color:var(--amazon);transform:translateY(-6px)}
+.why-icon{font-size:2.5rem;margin-bottom:18px;display:block}
+.why-card h3{font-size:1rem;font-weight:900;margin-bottom:10px;color:var(--amazon)}
+.why-card p{color:var(--text-dim);font-size:.84rem;line-height:1.5}
+
+footer{background:#000;padding:40px 8%;text-align:center;color:var(--text-dim);font-size:.8rem;border-top:1px solid var(--border)}
+.floating-chatbot{position:fixed;bottom:30px;right:30px;width:60px;height:60px;background:var(--amazon);color:#000;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;z-index:9999;text-decoration:none;animation:pulse-chat 2s infinite}
+@keyframes pulse-chat{0%{box-shadow:0 0 0 0 rgba(255,153,0,.6)}70%{box-shadow:0 0 0 18px rgba(255,153,0,0)}100%{box-shadow:0 0 0 0 rgba(255,153,0,0)}}
+@media(max-width:768px){.why{grid-template-columns:1fr}.tl{padding-left:30px}.tl-dot{left:-19px}}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html" class="logo">AMZN<span>·PULSE</span></a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="email.html">Email</a>
+    <a href="newsletters.html">Newsletters</a>
+    <a href="Contact.html">Contact</a>
+    <a href="login.html" class="login-btn">Dashboard</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>TRANS<span>-</span><br>ACTIONAL<br>POWER</h1>
+  <p class="hero-sub">Order Emails • Shipping Alerts • Review Triggers</p>
+  <div class="hero-cta">
+    <a href="login.html" class="btn-p">Automate My Emails</a>
+    <a href="email.html" class="btn-g">See All Sequences</a>
+  </div>
+</section>
+
+<section class="timeline">
+  <h2>THE TRANSACTIONAL EMAIL TIMELINE</h2>
+  <p class="sub">Every automated touchpoint from purchase to loyal repeat buyer — all Amazon TOS-compliant.</p>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">T+0 Minutes — Order Placed</div><h3>Order Confirmation & Personalised Thank You</h3><p>Immediate automated confirmation. Reinforce the purchase decision, set delivery expectations, and introduce your brand story. Reduces buyer's remorse and pre-emptive cancellations.</p><div class="tl-metrics"><span class="metric">Open Rate: 72%</span><span class="metric">Cancellation: -18%</span></div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">T+2 Hours — Order Processing</div><h3>Seller Dispatch Notification with Brand Touch</h3><p>A branded update that the order is being packed. Include product care tips or a quick-start guide link to add value before delivery.</p><div class="tl-metrics"><span class="metric">Open Rate: 58%</span><span class="metric">Brand Recall: +40%</span></div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">T+Delivery Day — Package Arrived</div><h3>Delivery Confirmation + Setup Guide</h3><p>Triggered via Amazon's delivery confirmation. Share an unboxing guide, video tutorial, or FAQ to ensure a perfect first experience and prevent negative reviews from confusion.</p><div class="tl-metrics"><span class="metric">Open Rate: 65%</span><span class="metric">Returns: -22%</span></div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">T+5 Days — Post-Delivery</div><h3>Experience Check-In (Issue Resolution)</div><p>Proactive customer service outreach. Catch problems before they become 1-star reviews. Converts 81% of potentially unhappy customers into satisfied ones when addressed within the first week.</p><div class="tl-metrics"><span class="metric">Issue Resolution: 81%</span><span class="metric">Negative Review: -45%</span></div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">T+14 Days — Review Window</div><h3>Review Request (Amazon-Compliant)</h3><p>The optimal time to request a review — product is being used, satisfaction is at its peak. Uses Request a Review API or Buyer-Seller Messaging. No incentives. Neutral language only.</p><div class="tl-metrics"><span class="metric">Review Rate: 8.5%</span><span class="metric">Avg Star: 4.6★</span></div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">T+30–90 Days — Re-engagement</div><h3>Replenishment Alert & Cross-Sell</h3><p>For consumables: a timely refill reminder. For all products: surface complementary items from your brand. Customers who purchase again within 90 days have 3× lifetime value.</p><div class="tl-metrics"><span class="metric">Repeat CVR: 12%</span><span class="metric">LTV Increase: +34%</span></div></div>
+  </div>
+</section>
+
+<div class="why">
+  <div class="why-card"><span class="why-icon">⚡</span><h3>Highest Open Rates in Email</h3><p>Transactional emails achieve 60–80% open rates — 5× higher than promotional emails. These are the emails buyers actually want.</p></div>
+  <div class="why-card"><span class="why-icon">🛡️</span><h3>Build Brand Trust</h3><p>Every transactional touchpoint is a branding opportunity. Sellers who communicate proactively earn 4.7★ average reviews vs 4.1★ for those who don't.</p></div>
+  <div class="why-card"><span class="why-icon">📈</span><h3>Drive Repeat Revenue</h3><p>A structured post-purchase sequence increases customer lifetime value by 34% on average. The best marketing you can do is serve existing buyers brilliantly.</p></div>
+</div>
+
+<footer>© 2026 AMZN·PULSE — TRANSACTIONAL EMAIL AUTOMATION</footer>
+<a href="chatbot.html" class="floating-chatbot"><i class="fa-solid fa-comment-dots"></i></a>
+
+<script>
+const observer=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.style.opacity='1';x.target.style.transform='translateY(0)'}})},{threshold:0.1});
+document.querySelectorAll('.tl-item,.why-card').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(30px)';el.style.transition='0.6s ease';observer.observe(el)});
+</script>
+</body>
+</html>

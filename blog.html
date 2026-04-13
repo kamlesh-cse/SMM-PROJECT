@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THE FEED | AMZN·PULSE Amazon Marketing Blog</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--amazon:#FF9900;--bg:#070708;--surface:rgba(255,255,255,0.03);--glass-border:rgba(255,255,255,0.09);--text-main:#f5f5f7;--text-dim:#86868b;--ease:cubic-bezier(0.23,1,0.32,1)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text-main);font-family:'Inter',sans-serif;line-height:1.6;overflow-x:hidden}
+header{position:fixed;top:0;width:100%;z-index:1000;display:flex;justify-content:space-between;align-items:center;padding:18px 8%;background:rgba(7,7,8,.85);backdrop-filter:blur(24px);border-bottom:1px solid var(--glass-border)}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:1px;text-decoration:none;color:white}
+.logo span{color:var(--amazon)}
+.nav-links a{color:var(--text-dim);text-decoration:none;font-size:.75rem;font-weight:700;margin-left:28px;text-transform:uppercase;letter-spacing:1px;transition:.3s}
+.nav-links a:hover,.nav-links a.active{color:var(--amazon)}
+.login-btn{background:var(--amazon);color:#000;padding:8px 22px;border-radius:50px;font-weight:900}
+
+/* HERO */
+.hero{height:80vh;display:flex;align-items:center;padding:0 8%;position:relative;margin-bottom:80px}
+.hero-bg{position:absolute;inset:0;
+  background:linear-gradient(90deg,var(--bg) 30%,transparent 100%),
+    url('https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=2070') right/cover no-repeat;z-index:-1}
+.hero-content span{color:var(--amazon);font-weight:800;letter-spacing:4px;font-size:.8rem;display:block;margin-bottom:16px;text-transform:uppercase}
+.hero-content h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,10vw,7rem);line-height:.9;letter-spacing:-2px;margin-bottom:22px}
+.hero-desc{max-width:540px;color:var(--text-dim);font-size:1rem}
+
+/* CATEGORY CARDS */
+.section-label{padding:0 8%;margin-bottom:28px;font-size:.75rem;font-weight:900;letter-spacing:3px;color:var(--text-dim);text-transform:uppercase}
+.categories-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding:0 8% 100px}
+.cat-card{position:relative;height:360px;border-radius:22px;overflow:hidden;border:1px solid var(--glass-border);transition:.5s var(--ease)}
+.cat-card img{width:100%;height:100%;object-fit:cover;filter:brightness(.45);transition:.8s var(--ease)}
+.cat-overlay{position:absolute;inset:0;padding:28px;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(to top,rgba(0,0,0,.88),transparent 60%)}
+.cat-overlay .cat-tag{color:var(--amazon);font-size:.7rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px}
+.cat-overlay h2{font-size:1.7rem;font-weight:900;text-transform:uppercase;margin-bottom:10px}
+.cat-overlay p{font-size:.88rem;color:var(--text-dim);margin-bottom:18px;opacity:0;transform:translateY(12px);transition:.4s var(--ease)}
+.cat-btn{display:inline-flex;align-items:center;gap:10px;font-size:.75rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--amazon);text-decoration:none;opacity:0;transform:translateY(12px);transition:.4s var(--ease)}
+.cat-card:hover{border-color:var(--amazon);transform:translateY(-10px)}
+.cat-card:hover img{transform:scale(1.1);filter:brightness(.7)}
+.cat-card:hover p,.cat-card:hover .cat-btn{opacity:1;transform:translateY(0)}
+
+/* FEATURED POSTS */
+.featured{padding:0 8% 80px}
+.featured h2{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;margin-bottom:40px;padding-bottom:16px;border-bottom:2px solid var(--glass-border)}
+.posts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.post-card{background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);border-radius:16px;overflow:hidden;transition:.4s}
+.post-card:hover{border-color:var(--amazon);transform:translateY(-6px)}
+.post-img{height:180px;overflow:hidden}
+.post-img img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.post-card:hover .post-img img{transform:scale(1.06)}
+.post-body{padding:24px}
+.post-meta{display:flex;gap:14px;margin-bottom:12px}
+.post-tag{background:rgba(255,153,0,.14);color:var(--amazon);font-size:.65rem;font-weight:800;padding:3px 10px;border-radius:50px;text-transform:uppercase;letter-spacing:1px}
+.post-date{color:var(--text-dim);font-size:.72rem;align-self:center}
+.post-body h3{font-size:1.05rem;font-weight:800;margin-bottom:10px;line-height:1.4}
+.post-body p{color:var(--text-dim);font-size:.85rem;line-height:1.6;margin-bottom:16px}
+.post-read{color:var(--amazon);font-size:.75rem;font-weight:800;text-decoration:none;letter-spacing:1px;text-transform:uppercase}
+.post-read:hover{text-decoration:underline}
+
+/* NEWSLETTER SIGNUP */
+.newsletter{background:rgba(255,153,0,.07);border:1px solid rgba(255,153,0,.2);border-radius:20px;margin:0 8% 80px;padding:60px;text-align:center}
+.newsletter h2{font-family:'Bebas Neue',sans-serif;font-size:3rem;margin-bottom:14px}
+.newsletter p{color:var(--text-dim);margin-bottom:30px;max-width:500px;margin-left:auto;margin-right:auto}
+.nl-form{display:flex;gap:12px;max-width:440px;margin:auto;flex-wrap:wrap;justify-content:center}
+.nl-input{flex:1;padding:14px 20px;background:rgba(255,255,255,.06);border:1px solid var(--glass-border);color:white;border-radius:50px;font-size:.9rem;min-width:200px}
+.nl-input:focus{outline:none;border-color:var(--amazon)}
+.nl-btn{background:var(--amazon);color:#000;padding:14px 28px;border:none;border-radius:50px;font-weight:900;cursor:pointer;font-size:.9rem;transition:.3s}
+.nl-btn:hover{background:#ffb020}
+
+footer{background:#000;padding:50px 8% 30px;border-top:1px solid var(--glass-border);text-align:center;color:var(--text-dim);font-size:.8rem}
+.floating-chatbot{position:fixed;bottom:30px;right:30px;width:60px;height:60px;background:var(--amazon);color:#000;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;z-index:9999;text-decoration:none;animation:pulse-chat 2s infinite}
+@keyframes pulse-chat{0%{box-shadow:0 0 0 0 rgba(255,153,0,.6)}70%{box-shadow:0 0 0 18px rgba(255,153,0,0)}100%{box-shadow:0 0 0 0 rgba(255,153,0,0)}}
+@media(max-width:768px){.categories-grid{grid-template-columns:1fr}.nav-links{display:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">AMZN<span>·PULSE</span></a>
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="blog.html" class="active">Blog</a>
+    <a href="promotions.html">Promotions</a>
+    <a href="email.html">Email</a>
+    <a href="Contact.html">Contact</a>
+    <a href="login.html" class="login-btn">Dashboard</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <span>Amazon Seller Intelligence</span>
+    <h1>THE<br>SELLER<br>FEED</h1>
+    <p class="hero-desc">Strategy, data, and insider tactics from 7-figure Amazon sellers. Updated every week — no fluff, no filler.</p>
+  </div>
+</section>
+
+<div class="section-label">TOPICS</div>
+<div class="categories-grid">
+  <div class="cat-card">
+    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800" alt="PPC Strategy">
+    <div class="cat-overlay">
+      <span class="cat-tag">Paid Traffic</span>
+      <h2>Amazon PPC & Sponsored Ads</h2>
+      <p>Master Sponsored Products, Sponsored Brands, and DSP to slash your ACOS and skyrocket sales velocity.</p>
+      <a href="#" class="cat-btn">Read Articles <i class="fa fa-arrow-right"></i></a>
+    </div>
+  </div>
+  <div class="cat-card">
+    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800" alt="Social Commerce">
+    <div class="cat-overlay">
+      <span class="cat-tag">Social Commerce</span>
+      <h2>TikTok, Instagram & Pinterest</h2>
+      <p>Drive external traffic from social platforms directly to your Amazon listings and storefront pages.</p>
+      <a href="#" class="cat-btn">Read Articles <i class="fa fa-arrow-right"></i></a>
+    </div>
+  </div>
+  <div class="cat-card">
+    <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=800" alt="SEO & Ranking">
+    <div class="cat-overlay">
+      <span class="cat-tag">SEO & Ranking</span>
+      <h2>Amazon A9/A10 Algorithm</h2>
+      <p>Keyword research, listing optimisation, and conversion rate tactics to rank on page one and stay there.</p>
+      <a href="#" class="cat-btn">Read Articles <i class="fa fa-arrow-right"></i></a>
+    </div>
+  </div>
+</div>
+
+<section class="featured">
+  <h2>LATEST ARTICLES</h2>
+  <div class="posts-grid">
+    <div class="post-card">
+      <div class="post-img"><img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=700" alt="Post"></div>
+      <div class="post-body">
+        <div class="post-meta"><span class="post-tag">PPC</span><span class="post-date">Apr 10, 2026</span></div>
+        <h3>How to Cut Your ACOS by 40% in 30 Days Without Losing Sales Volume</h3>
+        <p>A systematic approach to Amazon Sponsored Products bid optimisation using dayparting and search term isolation.</p>
+        <a href="#" class="post-read">Read More →</a>
+      </div>
+    </div>
+    <div class="post-card">
+      <div class="post-img"><img src="https://images.unsplash.com/photo-1596526131083-e8c633c948d2?q=80&w=700" alt="Post"></div>
+      <div class="post-body">
+        <div class="post-meta"><span class="post-tag">Social</span><span class="post-date">Apr 7, 2026</span></div>
+        <h3>TikTok Shop vs Amazon: Why Smart Sellers Use Both to Win</h3>
+        <p>The cross-channel strategy top brands use to dominate search results on both platforms simultaneously.</p>
+        <a href="#" class="post-read">Read More →</a>
+      </div>
+    </div>
+    <div class="post-card">
+      <div class="post-img"><img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=700" alt="Post"></div>
+      <div class="post-body">
+        <div class="post-meta"><span class="post-tag">Email</span><span class="post-date">Apr 3, 2026</span></div>
+        <h3>The 5-Email Amazon Follow-Up Sequence That Gets 5-Star Reviews on Autopilot</h3>
+        <p>TOS-compliant templates for review requests, product feedback, and cross-sell sequences that work in 2026.</p>
+        <a href="#" class="post-read">Read More →</a>
+      </div>
+    </div>
+    <div class="post-card">
+      <div class="post-img"><img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=700" alt="Post"></div>
+      <div class="post-body">
+        <div class="post-meta"><span class="post-tag">Video</span><span class="post-date">Mar 29, 2026</span></div>
+        <h3>Amazon Sponsored Brands Video: The $500 Script That Generated $80K</h3>
+        <p>Real case study showing how a simple 30-second product video transformed a stagnant ASIN into a bestseller.</p>
+        <a href="#" class="post-read">Read More →</a>
+      </div>
+    </div>
+    <div class="post-card">
+      <div class="post-img"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=700" alt="Post"></div>
+      <div class="post-body">
+        <div class="post-meta"><span class="post-tag">Prime Day</span><span class="post-date">Mar 25, 2026</span></div>
+        <h3>Prime Day 2026 Prep: The 60-Day Countdown Checklist for Sellers</h3>
+        <p>Inventory, deals, listing optimisation, and budget allocation — everything you need to make Prime Day your biggest day.</p>
+        <a href="#" class="post-read">Read More →</a>
+      </div>
+    </div>
+    <div class="post-card">
+      <div class="post-img"><img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=700" alt="Post"></div>
+      <div class="post-body">
+        <div class="post-meta"><span class="post-tag">Brand</span><span class="post-date">Mar 20, 2026</span></div>
+        <h3>Amazon Brand Store Makeover: Design Principles That Convert Visitors</h3>
+        <p>UX and design tactics used by top Amazon brands to turn storefront traffic into loyal repeat customers.</p>
+        <a href="#" class="post-read">Read More →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="newsletter">
+  <h2>NEVER MISS AN UPDATE</h2>
+  <p>Join 28,000+ Amazon sellers getting weekly tactics delivered straight to their inbox. No spam — ever.</p>
+  <div class="nl-form">
+    <input class="nl-input" type="email" placeholder="your@email.com">
+    <button class="nl-btn">Subscribe</button>
+  </div>
+</div>
+
+<footer>© 2026 AMZN·PULSE MARKETING SYSTEMS — THE FEED</footer>
+
+<a href="chatbot.html" class="floating-chatbot"><i class="fa-solid fa-comment-dots"></i></a>
+
+<script>
+const observer=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.style.opacity='1';x.target.style.transform='translateY(0)'}})},{threshold:0.1});
+document.querySelectorAll('.cat-card,.post-card').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(30px)';el.style.transition='0.6s ease';observer.observe(el)});
+</script>
+</body>
+</html>

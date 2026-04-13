@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Content Strategy | AMZN·PULSE A+ Content & Listing Optimisation</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+:root{--amazon:#FF9900;--volt:#cfff04;--bg:#050505;--surface:#0f1117;--glass-border:rgba(255,255,255,0.1);--text-main:#f5f5f7;--text-dim:#86868b}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text-main);font-family:'Inter',sans-serif;line-height:1.6;overflow-x:hidden}
+header{padding:0 8%;height:80px;display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--glass-border);position:fixed;width:100%;top:0;z-index:1000}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:2rem;text-decoration:none;color:white;letter-spacing:1px}
+.logo span{color:var(--amazon)}
+.nav-menu{display:flex;list-style:none;gap:28px}
+.nav-menu a{color:var(--text-dim);text-decoration:none;font-weight:700;font-size:.75rem;text-transform:uppercase;letter-spacing:1.5px;transition:.3s}
+.nav-menu a:hover,.nav-menu a.active{color:var(--amazon)}
+.header-cta{background:var(--amazon);color:#000;padding:10px 22px;border-radius:4px;font-weight:900;text-transform:uppercase;font-size:.7rem;text-decoration:none;transition:.3s}
+
+/* HERO */
+.hero{padding:220px 8% 120px;background:linear-gradient(rgba(5,5,5,.72),var(--bg)),url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070') center/cover;text-align:center}
+.hero span{color:var(--amazon);font-size:.8rem;font-weight:800;letter-spacing:4px;text-transform:uppercase;display:block;margin-bottom:18px}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,12vw,7.5rem);line-height:.9;margin-bottom:22px;letter-spacing:-1px}
+.hero p{color:var(--text-dim);font-size:1.1rem;max-width:580px;margin:0 auto 36px;line-height:1.7}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-p{background:var(--amazon);color:#000;padding:16px 36px;border-radius:50px;text-decoration:none;font-weight:900;font-size:.9rem;transition:.3s}
+.btn-p:hover{background:#ffb020}
+.btn-g{border:1px solid var(--glass-border);color:var(--text-main);padding:16px 36px;border-radius:50px;text-decoration:none;font-weight:700;font-size:.9rem;transition:.3s}
+.btn-g:hover{border-color:var(--amazon);color:var(--amazon)}
+
+/* PILLARS */
+.pillars{padding:80px 8%;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.pillar{background:rgba(255,255,255,.03);border:1px solid var(--glass-border);border-radius:16px;padding:32px 24px;transition:.4s;text-align:center}
+.pillar:hover{border-color:var(--amazon);transform:translateY(-8px)}
+.p-icon{font-size:2.5rem;margin-bottom:18px;display:block}
+.pillar h3{font-size:1.05rem;font-weight:900;margin-bottom:10px;color:var(--amazon)}
+.pillar p{color:var(--text-dim);font-size:.84rem;line-height:1.5}
+
+/* CONTENT TYPES */
+.content-types{padding:0 8% 80px}
+.ct-head{margin-bottom:50px}
+.ct-head h2{font-family:'Bebas Neue',sans-serif;font-size:3rem;margin-bottom:8px}
+.ct-head p{color:var(--text-dim)}
+.ct-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.ct-card{background:rgba(255,255,255,.03);border:1px solid var(--glass-border);border-radius:18px;overflow:hidden;display:flex;gap:0;transition:.4s}
+.ct-card:hover{border-color:var(--amazon)}
+.ct-img{width:220px;flex-shrink:0;overflow:hidden}
+.ct-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.6);transition:.5s}
+.ct-card:hover .ct-img img{transform:scale(1.06);filter:brightness(.8)}
+.ct-body{padding:28px}
+.ct-body .tag{color:var(--amazon);font-size:.68rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;display:block}
+.ct-body h3{font-size:1.15rem;font-weight:900;margin-bottom:10px;line-height:1.3}
+.ct-body p{color:var(--text-dim);font-size:.84rem;line-height:1.5;margin-bottom:16px}
+.ct-arrow{color:var(--amazon);font-weight:800;font-size:.8rem;text-decoration:none;text-transform:uppercase;letter-spacing:1px}
+
+/* SOCIAL CHANNELS */
+.social-channels{padding:80px 8%;background:rgba(0,0,0,.4);border-top:1px solid var(--glass-border)}
+.sc-head{text-align:center;margin-bottom:50px}
+.sc-head h2{font-family:'Bebas Neue',sans-serif;font-size:3rem;margin-bottom:8px}
+.sc-head p{color:var(--text-dim);max-width:500px;margin:auto}
+.channels-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.channel{background:rgba(255,255,255,.03);border:1px solid var(--glass-border);border-radius:16px;padding:28px 16px;text-align:center;transition:.4s;cursor:pointer}
+.channel:hover{border-color:var(--amazon);background:rgba(255,153,0,.05)}
+.channel-icon{font-size:2.2rem;margin-bottom:14px;display:block}
+.channel h4{font-size:.88rem;font-weight:900;margin-bottom:6px}
+.channel p{color:var(--text-dim);font-size:.74rem}
+
+/* CTA STRIP */
+.cta-strip{margin:0 8% 80px;padding:60px;border-radius:20px;background:linear-gradient(135deg,rgba(255,153,0,.12),rgba(255,153,0,.04));border:1px solid rgba(255,153,0,.25);text-align:center}
+.cta-strip h2{font-family:'Bebas Neue',sans-serif;font-size:3rem;margin-bottom:14px}
+.cta-strip p{color:var(--text-dim);max-width:500px;margin:0 auto 30px}
+
+footer{background:#000;padding:40px 8%;text-align:center;color:var(--text-dim);font-size:.8rem;border-top:1px solid var(--glass-border)}
+.floating-chatbot{position:fixed;bottom:30px;right:30px;width:60px;height:60px;background:var(--amazon);color:#000;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;z-index:9999;text-decoration:none;animation:pulse-chat 2s infinite}
+@keyframes pulse-chat{0%{box-shadow:0 0 0 0 rgba(255,153,0,.6)}70%{box-shadow:0 0 0 18px rgba(255,153,0,0)}100%{box-shadow:0 0 0 0 rgba(255,153,0,0)}}
+@media(max-width:768px){.pillars{grid-template-columns:repeat(2,1fr)}.ct-grid{grid-template-columns:1fr}.channels-grid{grid-template-columns:repeat(2,1fr)}.ct-img{width:120px}.nav-menu{display:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">AMZN<span>·PULSE</span></a>
+  <ul class="nav-menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="content.html" class="active">Content</a></li>
+    <li><a href="video-page.html">Video</a></li>
+    <li><a href="Contact.html">Contact</a></li>
+  </ul>
+  <a href="login.html" class="header-cta">Get Started</a>
+</header>
+
+<section class="hero">
+  <span>Amazon A+ Content & Social Media Strategy</span>
+  <h1>CONTENT THAT<br>CONVERTS</h1>
+  <p>From Amazon A+ Content modules to TikTok Shop videos and Pinterest boards — we build the full content ecosystem that turns browsers into buyers.</p>
+  <div class="hero-btns">
+    <a href="login.html" class="btn-p">Audit My Listings</a>
+    <a href="blog.html" class="btn-g">Read Strategy Blog</a>
+  </div>
+</section>
+
+<div class="pillars">
+  <div class="pillar"><span class="p-icon">🖊️</span><h3>Listing Copy</h3><p>Keyword-rich titles, bullet points, and descriptions engineered for Amazon's A9 algorithm and human conversion.</p></div>
+  <div class="pillar"><span class="p-icon">🎨</span><h3>A+ Content</h3><p>Enhanced Brand Content with comparison charts, lifestyle images, and story modules that lift CVR by up to 10%.</p></div>
+  <div class="pillar"><span class="p-icon">📸</span><h3>Product Images</h3><p>7-image sequences: hero, infographic, lifestyle, size reference, social proof, feature close-up, and unboxing shots.</p></div>
+  <div class="pillar"><span class="p-icon">📱</span><h3>Social Content</h3><p>Repurpose your Amazon content into TikTok, Reels, Pinterest Pins and YouTube Shorts that drive external traffic.</p></div>
+</div>
+
+<section class="content-types">
+  <div class="ct-head">
+    <h2>CONTENT FORMATS THAT MOVE THE NEEDLE</h2>
+    <p>Each format serves a specific stage of the Amazon buyer journey.</p>
+  </div>
+  <div class="ct-grid">
+    <div class="ct-card">
+      <div class="ct-img"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600" alt="A+ Content"></div>
+      <div class="ct-body">
+        <span class="tag">On-Amazon</span>
+        <h3>Amazon A+ & Premium A+ Content</h3>
+        <p>Modular brand storytelling on your product detail page. Premium A+ (Brand Story) increases conversion rates by up to 20%.</p>
+        <a href="#" class="ct-arrow">Learn More →</a>
+      </div>
+    </div>
+    <div class="ct-card">
+      <div class="ct-img"><img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=600" alt="Social"></div>
+      <div class="ct-body">
+        <span class="tag">Social Commerce</span>
+        <h3>TikTok Shop & Instagram Collab Posts</h3>
+        <p>Short-form video content that links directly to your Amazon listing. The most powerful external traffic source in 2026.</p>
+        <a href="video-page.html" class="ct-arrow">See Video Strategy →</a>
+      </div>
+    </div>
+    <div class="ct-card">
+      <div class="ct-img"><img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=600" alt="Brand Store"></div>
+      <div class="ct-body">
+        <span class="tag">Brand Store</span>
+        <h3>Amazon Brand Storefront Design</h3>
+        <p>A multi-page branded shopping experience on Amazon. Drive your social traffic to a curated storefront rather than a single ASIN.</p>
+        <a href="#" class="ct-arrow">See Examples →</a>
+      </div>
+    </div>
+    <div class="ct-card">
+      <div class="ct-img"><img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=600" alt="UGC"></div>
+      <div class="ct-body">
+        <span class="tag">User Content</span>
+        <h3>UGC & Amazon Vine Reviews</h3>
+        <p>Enrol products in Amazon Vine for authentic early reviews. Coordinate UGC campaigns with Creator Connections.</p>
+        <a href="#" class="ct-arrow">Enrol in Vine →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="social-channels">
+  <div class="sc-head">
+    <h2>EVERY PLATFORM COVERED</h2>
+    <p>Where your Amazon customers discover products before they search.</p>
+  </div>
+  <div class="channels-grid">
+    <div class="channel"><span class="channel-icon">📱</span><h4>TikTok Shop</h4><p>Direct product links in video</p></div>
+    <div class="channel"><span class="channel-icon">📸</span><h4>Instagram</h4><p>Reels & Shopping Tags</p></div>
+    <div class="channel"><span class="channel-icon">📌</span><h4>Pinterest</h4><p>Product Pins & Idea Pins</p></div>
+    <div class="channel"><span class="channel-icon">▶️</span><h4>YouTube</h4><p>Pre-roll & Shorts</p></div>
+    <div class="channel"><span class="channel-icon">💬</span><h4>Facebook</h4><p>Groups & Marketplace</p></div>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <h2>READY TO DOMINATE YOUR NICHE?</h2>
+  <p>Get a free content audit of your top 3 ASINs — we'll show you exactly what's holding back your conversion rate.</p>
+  <a href="Contact.html" class="btn-p">Get Free Audit</a>
+</div>
+
+<footer>© 2026 AMZN·PULSE — CONTENT STRATEGY SYSTEMS</footer>
+<a href="chatbot.html" class="floating-chatbot"><i class="fa-solid fa-comment-dots"></i></a>
+
+<script>
+const observer=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.style.opacity='1';x.target.style.transform='translateY(0)'}})},{threshold:0.1});
+document.querySelectorAll('.pillar,.ct-card,.channel').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(30px)';el.style.transition='0.6s ease';observer.observe(el)});
+</script>
+</body>
+</html>

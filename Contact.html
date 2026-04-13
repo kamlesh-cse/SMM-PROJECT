@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | AMZN·PULSE Get In Touch</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+:root{--amazon:#FF9900;--bg:#050608;--surface:#0f1117;--border:rgba(255,255,255,0.08);--text:#fff;--text-dim:#717d8a}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:40px 40px}
+header{position:fixed;top:0;width:100%;display:flex;justify-content:space-between;align-items:center;padding:18px 7%;background:rgba(5,6,8,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);z-index:1000}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:1.9rem;text-decoration:none;color:white;letter-spacing:1px}
+.logo span{color:var(--amazon)}
+nav a{text-decoration:none;color:var(--text-dim);font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-left:26px;transition:.3s}
+nav a:hover{color:var(--amazon)}
+.login-btn{background:var(--amazon);color:#000;padding:8px 22px;border-radius:50px;font-weight:900}
+.page{padding:130px 8% 80px;max-width:1100px;margin:auto}
+.page-head{margin-bottom:60px}
+.page-head h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,8vw,6rem);line-height:.9;margin-bottom:14px}
+.page-head h1 span{color:var(--amazon)}
+.page-head p{color:var(--text-dim);font-size:1rem;max-width:500px}
+.contact-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:50px;align-items:start}
+.contact-info .info-item{display:flex;gap:18px;margin-bottom:30px;padding:22px;background:var(--surface);border:1px solid var(--border);border-radius:14px;transition:.3s}
+.contact-info .info-item:hover{border-color:var(--amazon)}
+.info-icon{width:48px;height:48px;background:rgba(255,153,0,.12);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.info-text h4{font-size:.88rem;font-weight:900;margin-bottom:4px}
+.info-text p{color:var(--text-dim);font-size:.82rem}
+.contact-form{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:40px}
+.form-group{margin-bottom:22px}
+.form-group label{display:block;font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-dim);margin-bottom:8px}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:14px 18px;background:rgba(255,255,255,.05);border:1px solid var(--border);color:white;border-radius:10px;font-size:.9rem;font-family:'Inter',sans-serif;transition:.3s;resize:vertical}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--amazon)}
+.form-group select option{background:#0f1117}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.submit-btn{width:100%;background:var(--amazon);color:#000;padding:16px;border:none;border-radius:50px;font-weight:900;font-size:1rem;cursor:pointer;transition:.3s;letter-spacing:.5px}
+.submit-btn:hover{background:#ffb020}
+footer{background:#000;padding:40px 8%;text-align:center;color:var(--text-dim);font-size:.8rem;border-top:1px solid var(--border)}
+.floating-chatbot{position:fixed;bottom:30px;right:30px;width:60px;height:60px;background:var(--amazon);color:#000;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;z-index:9999;text-decoration:none;animation:pulse-chat 2s infinite}
+@keyframes pulse-chat{0%{box-shadow:0 0 0 0 rgba(255,153,0,.6)}70%{box-shadow:0 0 0 18px rgba(255,153,0,0)}100%{box-shadow:0 0 0 0 rgba(255,153,0,0)}}
+@media(max-width:768px){.contact-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html" class="logo">AMZN<span>·PULSE</span></a>
+  <nav>
+    <a href="index.html">Home</a><a href="blog.html">Blog</a><a href="content.html">Content</a>
+    <a href="Contact.html" style="color:var(--amazon)">Contact</a>
+    <a href="login.html" class="login-btn">Dashboard</a>
+  </nav>
+</header>
+<div class="page">
+  <div class="page-head">
+    <h1>LET'S GROW YOUR <span>AMAZON</span> BRAND</h1>
+    <p>Whether you need a full audit, a specific strategy, or just have a question — we're here to help.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="info-item"><div class="info-icon">📧</div><div class="info-text"><h4>Email Us</h4><p>hello@amznpulse.com<br>Replies within 4 hours</p></div></div>
+      <div class="info-item"><div class="info-icon">💬</div><div class="info-text"><h4>Live Chat</h4><p>Available Mon–Fri<br>9am–6pm IST</p></div></div>
+      <div class="info-item"><div class="info-icon">📞</div><div class="info-text"><h4>Strategy Call</h4><p>Book a free 30-min call<br>with our Amazon experts</p></div></div>
+      <div class="info-item"><div class="info-icon">🎟️</div><div class="info-text"><h4>Support Ticket</h4><p>For existing clients<br>support.amznpulse.com</p></div></div>
+    </div>
+    <div class="contact-form">
+      <div class="form-row">
+        <div class="form-group"><label>First Name</label><input type="text" placeholder="Rahul"></div>
+        <div class="form-group"><label>Last Name</label><input type="text" placeholder="Sharma"></div>
+      </div>
+      <div class="form-group"><label>Email Address</label><input type="email" placeholder="rahul@yourbrand.com"></div>
+      <div class="form-group"><label>I Need Help With</label>
+        <select>
+          <option>Select a service...</option>
+          <option>Amazon Listing Optimisation</option>
+          <option>PPC & Sponsored Ads</option>
+          <option>Content Strategy & A+</option>
+          <option>Email Marketing Automation</option>
+          <option>Video Ad Production</option>
+          <option>TikTok / Social Commerce</option>
+          <option>Prime Day Strategy</option>
+          <option>General Enquiry</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Monthly Amazon Revenue</label>
+        <select>
+          <option>Select range...</option>
+          <option>Under ₹1L/month</option>
+          <option>₹1L – ₹10L/month</option>
+          <option>₹10L – ₹50L/month</option>
+          <option>₹50L+/month</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Message</label><textarea rows="4" placeholder="Tell us about your brand and goals..."></textarea></div>
+      <button class="submit-btn">Send Message →</button>
+    </div>
+  </div>
+</div>
+<footer>© 2026 AMZN·PULSE — CONTACT US</footer>
+<a href="chatbot.html" class="floating-chatbot"><i class="fa-solid fa-comment-dots"></i></a>
+</body>
+</html>

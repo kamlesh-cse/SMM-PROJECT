@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Email Marketing | AMZN·PULSE Amazon Seller Automation</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+:root{--amazon:#FF9900;--amazon-glow:rgba(255,153,0,0.3);--bg:#050608;--surface:#0f1117;--border:rgba(255,255,255,0.08);--text:#fff;--text-dim:#717d8a}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;
+  background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:40px 40px}
+
+header{position:fixed;top:0;width:100%;display:flex;justify-content:space-between;align-items:center;padding:15px 7%;background:rgba(5,6,8,.92);backdrop-filter:blur(15px);border-bottom:2px solid var(--amazon);z-index:1000}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:1px;color:white;text-decoration:none}
+.logo span{color:var(--amazon);font-style:italic}
+nav{display:flex;gap:28px;align-items:center}
+nav a{text-decoration:none;color:var(--text);font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;transition:.3s}
+nav a:hover{color:var(--amazon)}
+.login-btn{background:var(--amazon);color:#000;padding:8px 22px;border-radius:50px;font-weight:900}
+
+/* HERO */
+.hero{position:relative;min-height:90vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:100px 7% 50px;
+  background:linear-gradient(rgba(5,6,8,.55),var(--bg)),url('https://images.unsplash.com/photo-1596526131083-e8c633c948d2?q=80&w=2070') center/cover;
+  clip-path:polygon(0 0,100% 0,100% 92%,0 100%)}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,16vw,10rem);line-height:.8;margin-bottom:12px;text-transform:uppercase;font-style:italic;filter:drop-shadow(0 0 24px var(--amazon-glow))}
+.hero h1 span{color:var(--amazon)}
+.hero-sub{color:var(--amazon);font-weight:900;text-transform:uppercase;letter-spacing:8px;margin-bottom:40px;background:rgba(0,0,0,.5);padding:5px 18px;font-size:.85rem}
+.btn-group{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.btn{padding:16px 32px;font-family:'Bebas Neue',sans-serif;font-size:1.3rem;text-decoration:none;color:white;border-none;cursor:pointer;clip-path:polygon(10% 0,100% 0,90% 100%,0 100%);transition:.4s}
+.btn-filled{background:var(--amazon);color:#000}
+.btn-filled:hover{background:#ffb020}
+.btn-outline{background:transparent;border:1px solid var(--border);color:white}
+.btn-outline:hover{border-color:var(--amazon);color:var(--amazon)}
+
+/* SEQUENCES */
+.section{padding:80px 8%}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:3rem;margin-bottom:14px}
+.section-sub{color:var(--text-dim);margin-bottom:50px;max-width:580px;font-size:.95rem}
+.sequences-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:60px}
+.seq-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:32px;transition:.4s;cursor:pointer}
+.seq-card:hover{border-color:var(--amazon);transform:translateY(-8px);box-shadow:0 20px 50px rgba(255,153,0,.1)}
+.seq-step{width:44px;height:44px;border-radius:12px;background:rgba(255,153,0,.12);border:1px solid rgba(255,153,0,.3);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--amazon);margin-bottom:18px}
+.seq-card h3{font-size:1.05rem;font-weight:900;margin-bottom:10px}
+.seq-card p{color:var(--text-dim);font-size:.85rem;line-height:1.5;margin-bottom:16px}
+.seq-meta{display:flex;gap:14px;flex-wrap:wrap}
+.seq-tag{background:rgba(255,153,0,.1);color:var(--amazon);font-size:.65rem;font-weight:800;padding:3px 10px;border-radius:50px;text-transform:uppercase}
+
+/* EMAIL PREVIEW */
+.email-preview{background:var(--surface);border:1px solid var(--border);border-radius:20px;overflow:hidden;margin-bottom:60px}
+.ep-header{background:var(--amazon);color:#000;padding:20px 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.ep-header h3{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:1px}
+.ep-badge{background:rgba(0,0,0,.2);padding:4px 14px;border-radius:50px;font-size:.72rem;font-weight:900}
+.ep-body{padding:36px}
+.ep-meta{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-bottom:30px}
+.ep-meta-item label{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--text-dim);display:block;margin-bottom:4px}
+.ep-meta-item span{font-size:.92rem;font-weight:700}
+.ep-template{background:rgba(0,0,0,.3);border:1px solid var(--border);border-radius:12px;padding:24px;font-size:.88rem;line-height:1.8;color:var(--text-dim)}
+.ep-template strong{color:var(--text)}
+.ep-template .highlight{color:var(--amazon);font-weight:800}
+
+/* STATS ROW */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-bottom:60px}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:28px;text-align:center;transition:.4s}
+.stat:hover{border-color:var(--amazon)}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--amazon);line-height:1}
+.stat-label{color:var(--text-dim);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-top:6px}
+
+/* COMPLIANCE */
+.compliance{background:rgba(255,153,0,.06);border:1px solid rgba(255,153,0,.2);border-radius:20px;padding:50px;margin-top:60px}
+.compliance h3{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;margin-bottom:20px;color:var(--amazon)}
+.compliance-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.rule{display:flex;gap:14px;padding:16px;background:rgba(0,0,0,.25);border-radius:10px}
+.rule-icon{font-size:1.4rem;flex-shrink:0;margin-top:2px}
+.rule-text h4{font-size:.88rem;font-weight:900;margin-bottom:4px}
+.rule-text p{font-size:.8rem;color:var(--text-dim);line-height:1.4}
+
+footer{background:#000;padding:40px 8%;text-align:center;color:var(--text-dim);font-size:.8rem;border-top:1px solid var(--border)}
+.floating-chatbot{position:fixed;bottom:30px;right:30px;width:60px;height:60px;background:var(--amazon);color:#000;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;z-index:9999;text-decoration:none;animation:pulse-chat 2s infinite}
+@keyframes pulse-chat{0%{box-shadow:0 0 0 0 rgba(255,153,0,.6)}70%{box-shadow:0 0 0 18px rgba(255,153,0,0)}100%{box-shadow:0 0 0 0 rgba(255,153,0,0)}}
+@media(max-width:768px){.sequences-grid{grid-template-columns:1fr}.stats-row{grid-template-columns:repeat(2,1fr)}.compliance-grid{grid-template-columns:1fr}.ep-meta{grid-template-columns:1fr}nav .nav-links{display:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">AMZN<span>·PULSE</span></a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blog</a>
+    <a href="promotions.html">Promotions</a>
+    <a href="newsletters.html">Newsletters</a>
+    <a href="Contact.html">Contact</a>
+    <a href="login.html" class="login-btn">Dashboard</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>EMAIL<br><span>THAT</span><br>SELLS</h1>
+  <p class="hero-sub">Amazon Buyer Automation • Review Generation • Retention Flows</p>
+  <div class="btn-group">
+    <a href="login.html" class="btn btn-filled">Build My Sequences</a>
+    <a href="blog.html" class="btn btn-outline">Read Case Studies</a>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title">PROVEN EMAIL SEQUENCES</h2>
+  <p class="section-sub">Every template is 100% compliant with Amazon's Communication Guidelines and designed to maximise review rate and repeat purchase frequency.</p>
+
+  <div class="sequences-grid">
+    <div class="seq-card">
+      <div class="seq-step">01</div>
+      <h3>Order Confirmation & Thank You</h3>
+      <p>Sent immediately after purchase — sets expectations, builds brand excitement, and primes the customer for a positive experience.</p>
+      <div class="seq-meta"><span class="seq-tag">Send: Immediately</span><span class="seq-tag">Open: 68%</span></div>
+    </div>
+    <div class="seq-card">
+      <div class="seq-step">02</div>
+      <h3>Delivery Confirmation & Unboxing Tips</h3>
+      <p>Triggered on delivery day. Reduce returns by sharing setup guides, tips, and FAQs before problems arise.</p>
+      <div class="seq-meta"><span class="seq-tag">Send: Day 1</span><span class="seq-tag">Return: -22%</span></div>
+    </div>
+    <div class="seq-card">
+      <div class="seq-step">03</div>
+      <h3>Product Experience Check-In</h3>
+      <p>Sent 5 days post-delivery to resolve issues proactively. Converts unhappy customers into satisfied ones before they leave bad reviews.</p>
+      <div class="seq-meta"><span class="seq-tag">Send: Day 5</span><span class="seq-tag">Resolution: 81%</span></div>
+    </div>
+    <div class="seq-card">
+      <div class="seq-step">04</div>
+      <h3>Review Request (Soft Ask)</h3>
+      <p>Amazon TOS-compliant review request — no incentives, no directed feedback. Uses "Request a Review" button timing for max response rate.</p>
+      <div class="seq-meta"><span class="seq-tag">Send: Day 14</span><span class="seq-tag">Review Rate: 8.5%</span></div>
+    </div>
+    <div class="seq-card">
+      <div class="seq-step">05</div>
+      <h3>Cross-Sell & Complementary Products</h3>
+      <p>30 days post-purchase, surface related products from your brand. Higher conversion because they already trust you.</p>
+      <div class="seq-meta"><span class="seq-tag">Send: Day 30</span><span class="seq-tag">CVR: 12%</span></div>
+    </div>
+    <div class="seq-card">
+      <div class="seq-step">06</div>
+      <h3>Win-Back & Replenishment</h3>
+      <p>For consumable products, trigger a replenishment reminder 60–90 days out. For all products, re-engage dormant buyers with new arrivals.</p>
+      <div class="seq-meta"><span class="seq-tag">Send: Day 60–90</span><span class="seq-tag">LTV: +34%</span></div>
+    </div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat"><div class="stat-num">68%</div><div class="stat-label">Avg Open Rate</div></div>
+    <div class="stat"><div class="stat-num">8.5%</div><div class="stat-label">Review Conversion</div></div>
+    <div class="stat"><div class="stat-num">12%</div><div class="stat-label">Cross-Sell CVR</div></div>
+    <div class="stat"><div class="stat-num">34%</div><div class="stat-label">LTV Increase</div></div>
+  </div>
+
+  <div class="email-preview">
+    <div class="ep-header">
+      <h3>📧 SAMPLE TEMPLATE — REVIEW REQUEST</h3>
+      <span class="ep-badge">Day 14 Sequence</span>
+    </div>
+    <div class="ep-body">
+      <div class="ep-meta">
+        <div class="ep-meta-item"><label>Subject Line</label><span>How's your [Product Name] treating you?</span></div>
+        <div class="ep-meta-item"><label>From Name</label><span>[Your Brand] via Amazon</span></div>
+        <div class="ep-meta-item"><label>Send Trigger</label><span>14 days after delivery confirmed</span></div>
+      </div>
+      <div class="ep-template">
+        <p>Hi <strong>[First Name]</strong>,</p><br>
+        <p>We hope you're loving your <strong>[Product Name]</strong>! We put a lot of care into making it, and we'd love to know how it's working for you.</p><br>
+        <p>If you have a moment, <span class="highlight">sharing your experience on Amazon helps other shoppers</span> make confident buying decisions — and it means the world to small brands like ours.</p><br>
+        <p>As always, if you have any questions or need support, just reply to this message — we personally respond to every email.</p><br>
+        <p>With appreciation,<br><strong>[Brand Name] Team</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="compliance">
+    <h3>AMAZON TOS COMPLIANCE RULES</h3>
+    <div class="compliance-grid">
+      <div class="rule"><span class="rule-icon">✅</span><div class="rule-text"><h4>Request reviews for one order only</h4><p>Each email must reference a specific order. Bulk review solicitation is prohibited.</p></div></div>
+      <div class="rule"><span class="rule-icon">✅</span><div class="rule-text"><h4>No incentivised reviews</h4><p>Never offer discounts, refunds, or gifts in exchange for reviews. Strictly prohibited.</p></div></div>
+      <div class="rule"><span class="rule-icon">✅</span><div class="rule-text"><h4>No directing to only positive reviews</h4><p>You cannot ask buyers to leave a "positive" or "5-star" review. Neutral language only.</p></div></div>
+      <div class="rule"><span class="rule-icon">✅</span><div class="rule-text"><h4>Use Amazon's approved channels</h4><p>All buyer-seller messages must go through Amazon Buyer-Seller Messaging or the "Request a Review" button.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 AMZN·PULSE — EMAIL MARKETING AUTOMATION</footer>
+<a href="chatbot.html" class="floating-chatbot"><i class="fa-solid fa-comment-dots"></i></a>
+
+<script>
+const observer=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.style.opacity='1';x.target.style.transform='translateY(0)'}})},{threshold:0.1});
+document.querySelectorAll('.seq-card,.stat').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(30px)';el.style.transition='0.6s ease';observer.observe(el)});
+</script>
+</body>
+</html>

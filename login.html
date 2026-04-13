@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Login | AMZN·PULSE</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--amazon:#FF9900;--bg:#050608;--surface:#0f1117;--border:rgba(255,255,255,0.08);--text:#fff;--text-dim:#717d8a}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:40px 40px}
+.login-wrap{width:100%;max-width:440px}
+.login-logo{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;text-align:center;margin-bottom:8px;text-decoration:none;color:white;display:block;letter-spacing:1px}
+.login-logo span{color:var(--amazon)}
+.login-sub{text-align:center;color:var(--text-dim);font-size:.85rem;margin-bottom:36px}
+.login-card{background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:44px}
+.login-card h2{font-family:'Bebas Neue',sans-serif;font-size:2rem;margin-bottom:8px}
+.login-card p{color:var(--text-dim);font-size:.85rem;margin-bottom:30px}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-dim);margin-bottom:8px}
+.form-group input{width:100%;padding:14px 18px;background:rgba(255,255,255,.05);border:1px solid var(--border);color:white;border-radius:10px;font-size:.9rem;transition:.3s}
+.form-group input:focus{outline:none;border-color:var(--amazon)}
+.forgot{display:block;text-align:right;color:var(--amazon);font-size:.75rem;margin-top:-10px;margin-bottom:22px;text-decoration:none;font-weight:700}
+.login-btn{width:100%;background:var(--amazon);color:#000;padding:16px;border:none;border-radius:50px;font-weight:900;font-size:1rem;cursor:pointer;transition:.3s;margin-bottom:16px}
+.login-btn:hover{background:#ffb020}
+.divider{text-align:center;color:var(--text-dim);font-size:.78rem;margin:16px 0;position:relative}
+.divider::before,.divider::after{content:'';position:absolute;top:50%;width:40%;height:1px;background:var(--border)}
+.divider::before{left:0}.divider::after{right:0}
+.amazon-btn{width:100%;background:transparent;border:1px solid var(--border);color:white;padding:14px;border-radius:50px;font-weight:700;font-size:.88rem;cursor:pointer;transition:.3s;display:flex;align-items:center;justify-content:center;gap:10px}
+.amazon-btn:hover{border-color:var(--amazon);color:var(--amazon)}
+.signup-link{text-align:center;color:var(--text-dim);font-size:.82rem;margin-top:22px}
+.signup-link a{color:var(--amazon);font-weight:800;text-decoration:none}
+.back-home{display:block;text-align:center;color:var(--text-dim);font-size:.78rem;margin-top:18px;text-decoration:none;transition:.3s}
+.back-home:hover{color:white}
+</style>
+</head>
+<body>
+<div class="login-wrap">
+  <a href="index.html" class="login-logo">AMZN<span>·PULSE</span></a>
+  <p class="login-sub">Amazon Social Media Marketing Dashboard</p>
+  <div class="login-card">
+    <h2>WELCOME BACK</h2>
+    <p>Sign in to your seller dashboard</p>
+    <div class="form-group"><label>Email Address</label><input type="email" placeholder="you@yourbrand.com"></div>
+    <div class="form-group"><label>Password</label><input type="password" placeholder="••••••••••••"></div>
+    <a href="#" class="forgot">Forgot password?</a>
+    <button class="login-btn">Sign In to Dashboard</button>
+    <div class="divider">or continue with</div>
+    <button class="amazon-btn">🛒 Sign in with Amazon Account</button>
+    <p class="signup-link">Don't have an account? <a href="Contact.html">Request Access</a></p>
+  </div>
+  <a href="index.html" class="back-home">← Back to AMZN·PULSE Home</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AMZN·PULSE | Amazon Social Media Marketing Hub</title>
+<meta name="description" content="Complete Amazon Social Media Marketing system — content, email, promotions, video ads, affiliate & more.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --amazon:#FF9900;
+  --amazon-dark:#E8860A;
+  --amazon-glow:rgba(255,153,0,0.35);
+  --bg:#070708;
+  --surface:rgba(255,255,255,0.04);
+  --glass-border:rgba(255,255,255,0.09);
+  --text-main:#f5f5f7;
+  --text-dim:#86868b;
+  --ease:cubic-bezier(0.23,1,0.32,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text-main);font-family:'Inter',sans-serif;overflow-x:hidden}
+
+/* GRID BG */
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,153,0,0.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,153,0,0.04) 1px,transparent 1px);
+  background-size:50px 50px;
+}
+
+/* HEADER */
+header{
+  position:fixed;top:0;width:100%;display:flex;
+  justify-content:space-between;align-items:center;
+  padding:18px 8%;background:rgba(7,7,8,0.85);
+  backdrop-filter:blur(24px);border-bottom:1px solid var(--glass-border);z-index:1000;
+}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:1px;text-decoration:none;color:white}
+.logo span{color:var(--amazon)}
+.nav-links a{color:var(--text-dim);text-decoration:none;font-size:.75rem;font-weight:700;margin-left:28px;text-transform:uppercase;letter-spacing:1px;transition:.3s}
+.nav-links a:hover{color:var(--amazon)}
+.login-btn{background:var(--amazon);color:#000;padding:8px 22px;border-radius:50px;font-weight:900}
+
+/* HERO */
+.hero{
+  position:relative;min-height:100vh;display:flex;flex-direction:column;
+  justify-content:center;align-items:center;text-align:center;
+  padding:120px 8% 80px;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(rgba(7,7,8,0.55),rgba(7,7,8,0.92)),
+    url('https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?q=80&w=2070') center/cover;
+}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,153,0,0.12);
+  border:1px solid rgba(255,153,0,0.35);color:var(--amazon);
+  padding:8px 20px;border-radius:50px;font-size:.75rem;font-weight:800;
+  letter-spacing:2px;text-transform:uppercase;margin-bottom:30px}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,9vw,7.5rem);
+  line-height:.9;letter-spacing:-1px;margin-bottom:24px}
+.hero h1 span{color:var(--amazon)}
+.hero p{color:var(--text-dim);max-width:580px;font-size:1.1rem;margin:0 auto 40px;line-height:1.7}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.btn-primary{background:var(--amazon);color:#000;padding:16px 36px;border-radius:50px;
+  text-decoration:none;font-weight:900;font-size:.9rem;letter-spacing:.5px;transition:.3s}
+.btn-primary:hover{background:#ffb020;transform:translateY(-2px);box-shadow:0 12px 40px var(--amazon-glow)}
+.btn-ghost{background:transparent;border:1px solid var(--glass-border);color:var(--text-main);
+  padding:16px 36px;border-radius:50px;text-decoration:none;font-weight:700;font-size:.9rem;transition:.3s}
+.btn-ghost:hover{border-color:var(--amazon);color:var(--amazon)}
+
+/* STATS */
+.stats{padding:60px 8%;display:grid;grid-template-columns:repeat(4,1fr);gap:30px;
+  border-top:1px solid var(--glass-border);border-bottom:1px solid var(--glass-border);
+  background:rgba(0,0,0,.3)}
+.stat-item{text-align:center}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:var(--amazon);line-height:1}
+.stat-label{font-size:.75rem;color:var(--text-dim);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-top:6px}
+
+/* FILTER PILLS */
+.section-header-area{padding:80px 8% 40px;text-align:center}
+.section-header-area h2{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;margin-bottom:10px}
+.section-header-area p{color:var(--text-dim)}
+.filter-pills{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;padding:0 8% 50px}
+.pill{background:var(--surface);border:1px solid var(--glass-border);color:var(--text-main);
+  padding:10px 26px;border-radius:100px;cursor:pointer;font-size:.75rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:1px;transition:.3s;border:none}
+.pill.active,.pill:hover{background:var(--amazon);color:#000}
+
+/* CARDS */
+.grid-section{padding:0 8% 100px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px}
+.card{background:rgba(255,255,255,0.03);border-radius:20px;overflow:hidden;
+  border:1px solid var(--glass-border);transition:.5s var(--ease);display:flex;flex-direction:column}
+.card:hover{transform:translateY(-12px);border-color:var(--amazon);
+  box-shadow:0 24px 60px rgba(255,153,0,0.12)}
+.card-img{height:210px;overflow:hidden;position:relative}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:.8s var(--ease)}
+.card:hover .card-img img{transform:scale(1.08)}
+.card-img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(7,7,8,0.8),transparent 50%)}
+.card-badge{position:absolute;top:16px;left:16px;background:var(--amazon);color:#000;
+  font-size:.65rem;font-weight:900;padding:4px 12px;border-radius:50px;letter-spacing:1px;text-transform:uppercase}
+.card-content{padding:28px;display:flex;flex-direction:column;flex-grow:1}
+.card-label{font-size:.7rem;font-weight:800;color:var(--amazon);letter-spacing:3px;text-transform:uppercase;margin-bottom:10px}
+.card-title{font-size:1.6rem;font-weight:900;margin-bottom:12px;line-height:1.2}
+.card-desc{color:var(--text-dim);margin-bottom:28px;font-size:.9rem;line-height:1.6}
+.card-link{background:white;color:black;padding:13px;border-radius:10px;
+  text-decoration:none;font-weight:800;text-align:center;margin-top:auto;font-size:.85rem;transition:.3s}
+.card-link:hover{background:var(--amazon)}
+
+/* FEATURES */
+.features{padding:80px 8%;background:rgba(0,0,0,.4);border-top:1px solid var(--glass-border)}
+.features h2{font-family:'Bebas Neue',sans-serif;font-size:3rem;text-align:center;margin-bottom:60px}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.feat{background:var(--surface);border:1px solid var(--glass-border);border-radius:16px;padding:36px 28px;transition:.4s}
+.feat:hover{border-color:var(--amazon);transform:translateY(-6px)}
+.feat-icon{width:56px;height:56px;background:rgba(255,153,0,0.12);border-radius:14px;
+  display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:20px}
+.feat h3{font-size:1.1rem;font-weight:800;margin-bottom:10px}
+.feat p{color:var(--text-dim);font-size:.88rem;line-height:1.6}
+
+/* FOOTER */
+footer{background:#000;padding:70px 8% 40px;border-top:1px solid var(--glass-border)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:50px}
+.footer-col h4{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--amazon);margin-bottom:18px}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:10px}
+.footer-col a{color:var(--text-dim);text-decoration:none;font-size:.85rem;transition:.3s}
+.footer-col a:hover{color:white}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:white;text-decoration:none;letter-spacing:1px}
+.footer-logo span{color:var(--amazon)}
+.footer-desc{color:var(--text-dim);font-size:.88rem;margin-top:14px;line-height:1.7}
+.social-links{display:flex;gap:18px;margin-top:16px}
+.social-links a{color:var(--text-dim);font-size:1.1rem;transition:.3s}
+.social-links a:hover{color:var(--amazon)}
+.footer-bottom{border-top:1px solid var(--glass-border);margin-top:50px;padding-top:24px;
+  text-align:center;color:var(--text-dim);font-size:.8rem}
+
+/* FLOATING CHATBOT */
+.floating-chatbot{position:fixed;bottom:30px;right:30px;width:60px;height:60px;
+  background:var(--amazon);color:#000;border-radius:50%;display:flex;
+  align-items:center;justify-content:center;font-size:26px;z-index:9999;
+  text-decoration:none;transition:.3s;box-shadow:0 8px 30px var(--amazon-glow);
+  animation:pulse-chat 2s infinite}
+.floating-chatbot:hover{transform:scale(1.1)}
+@keyframes pulse-chat{
+  0%{box-shadow:0 0 0 0 rgba(255,153,0,.6)}
+  70%{box-shadow:0 0 0 18px rgba(255,153,0,0)}
+  100%{box-shadow:0 0 0 0 rgba(255,153,0,0)}
+}
+
+@media(max-width:768px){
+  .nav-links{display:none}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .features-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">AMZN<span>·PULSE</span></a>
+  <nav class="nav-links">
+    <a href="blog.html">Blog</a>
+    <a href="promotions.html">Promotions</a>
+    <a href="email.html">Email</a>
+    <a href="content.html">Content</a>
+    <a href="Affiliate.html">Affiliate</a>
+    <a href="Contact.html">Contact</a>
+    <a href="login.html" class="login-btn">Dashboard</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-badge"><i class="fab fa-amazon"></i> Amazon Social Media Marketing</div>
+  <h1>DOMINATE<br><span>AMAZON</span><br>MARKETING</h1>
+  <p>Complete social media marketing infrastructure built for Amazon sellers — from viral content to email automation, affiliate programs to video ads.</p>
+  <div class="hero-btns">
+    <a href="content.html" class="btn-primary">Start Selling More</a>
+    <a href="blog.html" class="btn-ghost">Read the Blog</a>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="stat-item"><div class="stat-num">300M+</div><div class="stat-label">Amazon Customers</div></div>
+  <div class="stat-item"><div class="stat-num">9.7M</div><div class="stat-label">Active Sellers</div></div>
+  <div class="stat-item"><div class="stat-num">400B+</div><div class="stat-label">Annual GMV</div></div>
+  <div class="stat-item"><div class="stat-num">58%</div><div class="stat-label">Social-Driven Buys</div></div>
+</section>
+
+<section class="section-header-area">
+  <h2>YOUR MARKETING ARSENAL</h2>
+  <p>Every tool you need to grow your Amazon brand across every channel.</p>
+</section>
+
+<div class="filter-pills">
+  <button class="pill active" onclick="filterCards('all',this)">All</button>
+  <button class="pill" onclick="filterCards('content',this)">Content</button>
+  <button class="pill" onclick="filterCards('ads',this)">Paid Ads</button>
+  <button class="pill" onclick="filterCards('community',this)">Community</button>
+  <button class="pill" onclick="filterCards('analytics',this)">Analytics</button>
+</div>
+
+<main class="grid-section">
+<div class="grid">
+
+  <div class="card" data-cat="content">
+    <div class="card-img">
+      <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=800" alt="Content Strategy">
+      <div class="card-img-overlay"></div>
+      <span class="card-badge">Content</span>
+    </div>
+    <div class="card-content">
+      <span class="card-label">A+ Content & SEO</span>
+      <h3 class="card-title">Content Strategy</h3>
+      <p class="card-desc">Craft scroll-stopping listings, A+ content, and social posts that convert browsers to Prime buyers.</p>
+      <a href="content.html" class="card-link">Explore Content →</a>
+    </div>
+  </div>
+
+  <div class="card" data-cat="community">
+    <div class="card-img">
+      <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=800" alt="Blog">
+      <div class="card-img-overlay"></div>
+      <span class="card-badge">Community</span>
+    </div>
+    <div class="card-content">
+      <span class="card-label">Brand Authority</span>
+      <h3 class="card-title">Marketing Blog</h3>
+      <p class="card-desc">Data-driven Amazon seller insights, algorithm updates, and growth hacks published weekly.</p>
+      <a href="blog.html" class="card-link">Read the Feed →</a>
+    </div>
+  </div>
+
+  <div class="card" data-cat="ads">
+    <div class="card-img">
+      <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=800" alt="Promotions">
+      <div class="card-img-overlay"></div>
+      <span class="card-badge">Paid Ads</span>
+    </div>
+    <div class="card-content">
+      <span class="card-label">Deals & Lightning Deals</span>
+      <h3 class="card-title">Promotions Engine</h3>
+      <p class="card-desc">Lightning Deals, coupons, Prime Day strategies, and sponsored ad campaigns that maximise ROAS.</p>
+      <a href="promotions.html" class="card-link">Run Promotions →</a>
+    </div>
+  </div>
+
+  <div class="card" data-cat="community">
+    <div class="card-img">
+      <img src="https://images.unsplash.com/photo-1596526131083-e8c633c948d2?q=80&w=800" alt="Email">
+      <div class="card-img-overlay"></div>
+      <span class="card-badge">Email</span>
+    </div>
+    <div class="card-content">
+      <span class="card-label">Buyer Retention</span>
+      <h3 class="card-title">Email Marketing</h3>
+      <p class="card-desc">Amazon-compliant follow-up sequences that win reviews, drive repeat purchases, and build loyalty.</p>
+      <a href="email.html" class="card-link">Setup Email →</a>
+    </div>
+  </div>
+
+  <div class="card" data-cat="analytics">
+    <div class="card-img">
+      <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800" alt="Mobile">
+      <div class="card-img-overlay"></div>
+      <span class="card-badge">Mobile</span>
+    </div>
+    <div class="card-content">
+      <span class="card-label">App & Mobile-First</span>
+      <h3 class="card-title">Mobile Marketing</h3>
+      <p class="card-desc">Optimise for Amazon's mobile app shoppers — 70% of purchases happen on mobile. Don't miss them.</p>
+      <a href="mobile.html" class="card-link">Go Mobile →</a>
+    </div>
+  </div>
+
+  <div class="card" data-cat="content">
+    <div class="card-img">
+      <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=800" alt="Video Ads">
+      <div class="card-img-overlay"></div>
+      <span class="card-badge">Video</span>
+    </div>
+    <div class="card-content">
+      <span class="card-label">Sponsored Brands Video</span>
+      <h3 class="card-title">Video Ad Studio</h3>
+      <p class="card-desc">Amazon video ads, TikTok Shop content, Instagram Reels strategy and YouTube pre-roll that sells.</p>
+      <a href="video-page.html" class="card-link">Create Videos →</a>
+    </div>
+  </div>
+
+  <div class="card" data-cat="analytics">
+    <div class="card-img">
+      <img src="https://images.unsplash.com/photo-1555421689-d68471e189f2?q=80&w=800" alt="Newsletter">
+      <div class="card-img-overlay"></div>
+      <span class="card-badge">Newsletter</span>
+    </div>
+    <div class="card-content">
+      <span class="card-label">Amazon Posts & Brand Follow</span>
+      <h3 class="card-title">Seller Newsletter</h3>
+      <p class="card-desc">Weekly deal drops, restock alerts, and brand stories sent to your Amazon followers & email list.</p>
+      <a href="newsletters.html" class="card-link">Build List →</a>
+    </div>
+  </div>
+
+  <div class="card" data-cat="ads">
+    <div class="card-img">
+      <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800" alt="Affiliate">
+      <div class="card-img-overlay"></div>
+      <span class="card-badge">Affiliate</span>
+    </div>
+    <div class="card-content">
+      <span class="card-label">Amazon Associates</span>
+      <h3 class="card-title">Affiliate Program</h3>
+      <p class="card-desc">Leverage Amazon's 900,000+ Associates to drive external traffic and boost organic ranking signals.</p>
+      <a href="Affiliate.html" class="card-link">Join Associates →</a>
+    </div>
+  </div>
+
+</div>
+</main>
+
+<section class="features">
+  <h2>WHY AMZN·PULSE WORKS</h2>
+  <div class="features-grid">
+    <div class="feat">
+      <div class="feat-icon">🎯</div>
+      <h3>Algorithm-Driven Strategy</h3>
+      <p>Every tactic is built around Amazon's A9/A10 algorithm. We don't guess — we engineer rankings with data.</p>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">📊</div>
+      <h3>Real-Time Analytics</h3>
+      <p>Track BSR, conversion rates, ACOS, ROAS and session data across all your ASINs in one dashboard.</p>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">🚀</div>
+      <h3>Cross-Channel Amplification</h3>
+      <p>Sync your Amazon listings with TikTok, Instagram, Pinterest and YouTube Shorts for maximum reach.</p>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">⚡</div>
+      <h3>Lightning Deal Automation</h3>
+      <p>Auto-schedule Lightning Deals, coupons and flash sales timed to peak traffic windows on Amazon.</p>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">📧</div>
+      <h3>Compliant Email Flows</h3>
+      <p>Amazon TOS-compliant buyer sequences that generate 5-star reviews and repeat purchases automatically.</p>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">🤝</div>
+      <h3>Influencer & UGC Network</h3>
+      <p>Connect with Amazon Vine, Creator Connections and micro-influencers for authentic social proof.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <a href="index.html" class="footer-logo">AMZN<span>·PULSE</span></a>
+      <p class="footer-desc">The complete social media marketing operating system for Amazon sellers. Built for brands that refuse to be invisible.</p>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Channels</h4>
+      <ul>
+        <li><a href="content.html">Content Strategy</a></li>
+        <li><a href="email.html">Email Marketing</a></li>
+        <li><a href="video-page.html">Video Ads</a></li>
+        <li><a href="mobile.html">Mobile Strategy</a></li>
+        <li><a href="newsletters.html">Newsletters</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Growth</h4>
+      <ul>
+        <li><a href="promotions.html">Promotions</a></li>
+        <li><a href="Affiliate.html">Affiliate</a></li>
+        <li><a href="transactional.html">Transactional</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="Contact.html">Contact Us</a></li>
+        <li><a href="login.html">Dashboard Login</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Use</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 AMZN·PULSE MARKETING SYSTEMS. BUILT FOR AMAZON SELLERS WHO MEAN BUSINESS.</div>
+</footer>
+
+<a href="chatbot.html" class="floating-chatbot" title="Ask our Amazon AI"><i class="fa-solid fa-comment-dots"></i></a>
+
+<script>
+function filterCards(cat, btn){
+  document.querySelectorAll('.pill').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.card').forEach(c=>{
+    c.style.display=(cat==='all'||c.dataset.cat===cat)?'flex':'none';
+  });
+}
+
+// Scroll reveal
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}});
+},{threshold:0.1});
+document.querySelectorAll('.card,.feat').forEach(el=>{
+  el.style.opacity='0';el.style.transform='translateY(30px)';el.style.transition='0.6s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>

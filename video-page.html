@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Ads | AMZN·PULSE Amazon Sponsored Video & Social</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+:root{--amazon:#FF9900;--bg:#050608;--surface:#0f1117;--border:rgba(255,255,255,0.08);--text:#fff;--text-dim:#717d8a}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:40px 40px}
+header{position:fixed;top:0;width:100%;display:flex;justify-content:space-between;align-items:center;padding:18px 7%;background:rgba(5,6,8,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);z-index:1000}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:1.9rem;text-decoration:none;color:white;letter-spacing:1px}
+.logo span{color:var(--amazon)}
+nav a{text-decoration:none;color:var(--text-dim);font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-left:26px;transition:.3s}
+nav a:hover{color:var(--amazon)}
+.login-btn{background:var(--amazon);color:#000;padding:8px 22px;border-radius:50px;font-weight:900}
+
+.hero{position:relative;min-height:92vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:100px 7% 60px;overflow:hidden}
+.hero-video-bg{position:absolute;inset:0;z-index:-1;background:linear-gradient(rgba(5,6,8,.6),rgba(5,6,8,.9)),url('https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=2070') center/cover}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,153,0,.12);border:1px solid rgba(255,153,0,.3);color:var(--amazon);padding:8px 20px;border-radius:50px;font-size:.75rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:28px}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,15vw,10rem);line-height:.85;letter-spacing:-2px;font-style:italic;filter:drop-shadow(0 0 30px rgba(255,153,0,.4));margin-bottom:16px}
+.hero h1 span{color:var(--amazon)}
+.hero-sub{color:var(--text-dim);max-width:580px;font-size:1rem;margin-bottom:40px;line-height:1.7}
+.play-btn{width:80px;height:80px;border-radius:50%;background:var(--amazon);display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 40px;cursor:pointer;transition:.3s;box-shadow:0 0 40px rgba(255,153,0,.5)}
+.play-btn:hover{transform:scale(1.1);background:#ffb020}
+.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-filled{background:var(--amazon);color:#000;padding:16px 34px;border-radius:50px;text-decoration:none;font-weight:900;font-size:.9rem;transition:.3s}
+.btn-filled:hover{background:#ffb020}
+.btn-outline{border:1px solid var(--border);color:white;padding:16px 34px;border-radius:50px;text-decoration:none;font-weight:700;font-size:.9rem;transition:.3s}
+.btn-outline:hover{border-color:var(--amazon);color:var(--amazon)}
+
+/* VIDEO FORMATS */
+.formats{padding:80px 8%}
+.formats-head{text-align:center;margin-bottom:50px}
+.formats-head h2{font-family:'Bebas Neue',sans-serif;font-size:3rem;margin-bottom:10px}
+.formats-head p{color:var(--text-dim);max-width:500px;margin:auto}
+.formats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.format-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:.4s}
+.format-card:hover{border-color:var(--amazon);transform:translateY(-8px)}
+.format-img{height:180px;position:relative;overflow:hidden}
+.format-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.55);transition:.5s}
+.format-card:hover .format-img img{transform:scale(1.07);filter:brightness(.75)}
+.format-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.play-icon{width:52px;height:52px;border-radius:50%;background:rgba(255,153,0,.9);display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:#000;transition:.3s}
+.format-card:hover .play-icon{transform:scale(1.15)}
+.format-body{padding:24px}
+.format-tag{color:var(--amazon);font-size:.68rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;display:block}
+.format-body h3{font-size:1.1rem;font-weight:900;margin-bottom:10px}
+.format-body p{color:var(--text-dim);font-size:.84rem;line-height:1.5}
+.format-specs{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.spec{background:rgba(255,153,0,.1);color:var(--amazon);font-size:.68rem;font-weight:700;padding:3px 10px;border-radius:50px}
+
+/* PROCESS */
+.process{padding:0 8% 80px;background:rgba(0,0,0,.4);border-top:1px solid var(--border);padding-top:80px}
+.process-head{text-align:center;margin-bottom:50px}
+.process-head h2{font-family:'Bebas Neue',sans-serif;font-size:3rem;margin-bottom:10px}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
+.steps::before{content:'';position:absolute;top:30px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,var(--amazon),rgba(255,153,0,.2));z-index:0}
+.step{text-align:center;position:relative;z-index:1;padding:0 12px}
+.step-num{width:60px;height:60px;border-radius:50%;background:var(--amazon);color:#000;font-family:'Bebas Neue',sans-serif;font-size:1.5rem;display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+.step h4{font-size:.88rem;font-weight:900;margin-bottom:8px}
+.step p{color:var(--text-dim);font-size:.78rem;line-height:1.4}
+
+/* CASE STUDY */
+.case-study{margin:0 8% 80px;background:var(--surface);border:1px solid var(--border);border-radius:20px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr}
+.cs-img{overflow:hidden}
+.cs-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.7)}
+.cs-body{padding:50px}
+.cs-tag{color:var(--amazon);font-size:.72rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;display:block}
+.cs-body h2{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;margin-bottom:16px;line-height:1}
+.cs-body p{color:var(--text-dim);font-size:.9rem;line-height:1.6;margin-bottom:30px}
+.cs-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
+.cs-stat .num{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--amazon);line-height:1}
+.cs-stat .label{color:var(--text-dim);font-size:.7rem;font-weight:700;text-transform:uppercase}
+.cs-cta{display:inline-block;background:var(--amazon);color:#000;padding:14px 28px;border-radius:50px;font-weight:900;text-decoration:none;font-size:.88rem;transition:.3s}
+.cs-cta:hover{background:#ffb020}
+
+footer{background:#000;padding:40px 8%;text-align:center;color:var(--text-dim);font-size:.8rem;border-top:1px solid var(--border)}
+.floating-chatbot{position:fixed;bottom:30px;right:30px;width:60px;height:60px;background:var(--amazon);color:#000;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;z-index:9999;text-decoration:none;animation:pulse-chat 2s infinite}
+@keyframes pulse-chat{0%{box-shadow:0 0 0 0 rgba(255,153,0,.6)}70%{box-shadow:0 0 0 18px rgba(255,153,0,0)}100%{box-shadow:0 0 0 0 rgba(255,153,0,0)}}
+@media(max-width:768px){.formats-grid{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.case-study{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">AMZN<span>·PULSE</span></a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="content.html">Content</a>
+    <a href="promotions.html">Promotions</a>
+    <a href="blog.html">Blog</a>
+    <a href="Contact.html">Contact</a>
+    <a href="login.html" class="login-btn">Dashboard</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-video-bg"></div>
+  <div class="hero-badge"><i class="fa fa-play-circle"></i> Video Ad Studio</div>
+  <h1>VIDEO<br><span>THAT</span><br>SELLS</h1>
+  <p class="hero-sub">Amazon Sponsored Brands Video, TikTok Shop content, Instagram Reels, and YouTube pre-roll — all engineered to convert.</p>
+  <div class="play-btn">▶</div>
+  <div class="hero-cta">
+    <a href="login.html" class="btn-filled">Start a Video Campaign</a>
+    <a href="blog.html" class="btn-outline">View Case Studies</a>
+  </div>
+</section>
+
+<section class="formats">
+  <div class="formats-head">
+    <h2>VIDEO FORMATS THAT CONVERT</h2>
+    <p>Every format built for a specific channel and buying intent stage.</p>
+  </div>
+  <div class="formats-grid">
+    <div class="format-card">
+      <div class="format-img">
+        <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=700" alt="Sponsored Brands Video">
+        <div class="format-overlay"><div class="play-icon">▶</div></div>
+      </div>
+      <div class="format-body">
+        <span class="format-tag">Amazon On-Platform</span>
+        <h3>Sponsored Brands Video</h3>
+        <p>Auto-play in Amazon search results. The #1 format for awareness and conversion on Amazon right now.</p>
+        <div class="format-specs"><span class="spec">15–30 sec</span><span class="spec">Silent-first</span><span class="spec">ASIN link</span></div>
+      </div>
+    </div>
+    <div class="format-card">
+      <div class="format-img">
+        <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=700" alt="TikTok Shop">
+        <div class="format-overlay"><div class="play-icon">▶</div></div>
+      </div>
+      <div class="format-body">
+        <span class="format-tag">TikTok Shop</span>
+        <h3>TikTok Shoppable Video</h3>
+        <p>Product links embedded in TikTok videos. Creator-style content that feels native and converts like crazy.</p>
+        <div class="format-specs"><span class="spec">9–60 sec</span><span class="spec">9:16 ratio</span><span class="spec">Direct checkout</span></div>
+      </div>
+    </div>
+    <div class="format-card">
+      <div class="format-img">
+        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=700" alt="Instagram Reels">
+        <div class="format-overlay"><div class="play-icon">▶</div></div>
+      </div>
+      <div class="format-body">
+        <span class="format-tag">Instagram & Facebook</span>
+        <h3>Reels & Stories Ads</h3>
+        <p>Drive traffic to your Amazon listing or Brand Store via Instagram & Facebook video ads with Amazon Attribution links.</p>
+        <div class="format-specs"><span class="spec">7–30 sec</span><span class="spec">9:16 & 4:5</span><span class="spec">Attribution</span></div>
+      </div>
+    </div>
+    <div class="format-card">
+      <div class="format-img">
+        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=700" alt="YouTube">
+        <div class="format-overlay"><div class="play-icon">▶</div></div>
+      </div>
+      <div class="format-body">
+        <span class="format-tag">YouTube</span>
+        <h3>Pre-Roll & YouTube Shorts</h3>
+        <p>Reach buyers in research mode. Amazon Attribution tracking shows exactly which YouTube views drive Amazon purchases.</p>
+        <div class="format-specs"><span class="spec">15–30 sec</span><span class="spec">16:9 & 9:16</span><span class="spec">Skip ads</span></div>
+      </div>
+    </div>
+    <div class="format-card">
+      <div class="format-img">
+        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=700" alt="Amazon Live">
+        <div class="format-overlay"><div class="play-icon">▶</div></div>
+      </div>
+      <div class="format-body">
+        <span class="format-tag">Live Commerce</span>
+        <h3>Amazon Live Streaming</h3>
+        <p>Real-time product demos on Amazon Live. Builds trust, answers questions, and drives immediate purchase intent.</p>
+        <div class="format-specs"><span class="spec">Live format</span><span class="spec">Shoppable</span><span class="spec">Free tool</span></div>
+      </div>
+    </div>
+    <div class="format-card">
+      <div class="format-img">
+        <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=700" alt="Product Video">
+        <div class="format-overlay"><div class="play-icon">▶</div></div>
+      </div>
+      <div class="format-body">
+        <span class="format-tag">Listing Asset</span>
+        <h3>Product Detail Page Video</h3>
+        <p>Added to your ASIN image gallery. Shoppers who watch a product video convert at 3–4× the rate of those who don't.</p>
+        <div class="format-specs"><span class="spec">30–120 sec</span><span class="spec">16:9 ratio</span><span class="spec">Always-on</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="process-head">
+    <h2>OUR VIDEO PRODUCTION PROCESS</h2>
+    <p>From brief to live campaign in 14 days.</p>
+  </div>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><h4>Brand Brief</h4><p>Product features, target audience, key claims and tone of voice.</p></div>
+    <div class="step"><div class="step-num">2</div><h4>Script & Storyboard</h4><p>Hook in first 2 seconds, benefit-led narrative, clear CTA.</p></div>
+    <div class="step"><div class="step-num">3</div><h4>Production</h4><p>Studio shoot or UGC-style. Professional editing, motion graphics, captions.</p></div>
+    <div class="step"><div class="step-num">4</div><h4>Multi-Format Export</h4><p>Cut for each platform: Amazon, TikTok, Reels, YouTube Shorts.</p></div>
+    <div class="step"><div class="step-num">5</div><h4>Launch & Optimise</h4><p>Campaign setup, bid management, and A/B testing of creatives.</p></div>
+  </div>
+</section>
+
+<div class="case-study">
+  <div class="cs-img"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=700" alt="Case Study"></div>
+  <div class="cs-body">
+    <span class="cs-tag">📊 Case Study — Skincare Brand</span>
+    <h2>FROM 0 TO BSR #1 IN 60 DAYS WITH VIDEO</h2>
+    <p>A skincare brand with zero reviews used a 3-platform video strategy (Amazon SBV + TikTok + Reels) to climb from page 8 to BSR #1 in their sub-category within 60 days.</p>
+    <div class="cs-stats">
+      <div class="cs-stat"><div class="num">612%</div><div class="label">Sales increase</div></div>
+      <div class="cs-stat"><div class="num">3.2x</div><div class="label">ROAS on video ads</div></div>
+      <div class="cs-stat"><div class="num">47K</div><div class="label">TikTok views</div></div>
+    </div>
+    <a href="blog.html" class="cs-cta">Read Full Case Study →</a>
+  </div>
+</div>
+
+<footer>© 2026 AMZN·PULSE — VIDEO AD STUDIO</footer>
+<a href="chatbot.html" class="floating-chatbot"><i class="fa-solid fa-comment-dots"></i></a>
+
+<script>
+const observer=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.style.opacity='1';x.target.style.transform='translateY(0)'}})},{threshold:0.1});
+document.querySelectorAll('.format-card,.step').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(30px)';el.style.transition='0.6s ease';observer.observe(el)});
+</script>
+</body>
+</html>

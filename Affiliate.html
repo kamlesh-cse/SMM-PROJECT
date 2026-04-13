@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Affiliate Program | AMZN·PULSE Amazon Associates</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+:root{--amazon:#FF9900;--gold:#FFD700;--bg:#050505;--surface:rgba(255,255,255,0.03);--glass-border:rgba(255,255,255,0.09);--text:#f5f5f7;--text-dim:#86868b}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(255,153,0,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,153,0,.03) 1px,transparent 1px);background-size:50px 50px}
+header{position:fixed;top:0;width:100%;display:flex;justify-content:space-between;align-items:center;padding:18px 8%;background:rgba(5,5,5,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--glass-border);z-index:1000}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:1.9rem;text-decoration:none;color:white;letter-spacing:1px}
+.logo span{color:var(--amazon)}
+nav a{text-decoration:none;color:var(--text-dim);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-left:26px;transition:.3s}
+nav a:hover{color:var(--amazon)}
+.login-btn{background:var(--amazon);color:#000;padding:8px 22px;border-radius:50px;font-weight:900}
+
+/* HERO */
+.hero{position:relative;height:85vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 8%;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(rgba(5,5,5,.55),rgba(5,5,5,.9)),url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2070') center/cover;z-index:-1}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(255,215,0,.12);border:1px solid rgba(255,215,0,.3);color:var(--gold);padding:9px 22px;border-radius:50px;font-size:.75rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:28px}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,10vw,8rem);line-height:.88;letter-spacing:-1px;margin-bottom:20px}
+.hero h1 span{color:var(--amazon)}
+.hero p{color:var(--text-dim);max-width:560px;font-size:1.05rem;margin:0 auto 38px;line-height:1.7}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.btn-p{background:var(--amazon);color:#000;padding:16px 36px;border-radius:50px;text-decoration:none;font-weight:900;font-size:.9rem;transition:.3s}
+.btn-p:hover{background:#ffb020;transform:translateY(-2px)}
+.btn-g{border:1px solid var(--glass-border);color:white;padding:16px 36px;border-radius:50px;text-decoration:none;font-weight:700;font-size:.9rem;transition:.3s}
+.btn-g:hover{border-color:var(--amazon);color:var(--amazon)}
+
+/* COMMISSION TABLE */
+.commissions{padding:80px 8%}
+.commissions h2{font-family:'Bebas Neue',sans-serif;font-size:3rem;margin-bottom:10px}
+.commissions .sub{color:var(--text-dim);margin-bottom:40px;max-width:540px}
+.table-wrap{background:rgba(255,255,255,.03);border:1px solid var(--glass-border);border-radius:18px;overflow:hidden}
+.comm-table{width:100%;border-collapse:collapse}
+.comm-table th{background:var(--amazon);color:#000;padding:16px 20px;text-align:left;font-size:.8rem;font-weight:900;text-transform:uppercase;letter-spacing:1px}
+.comm-table td{padding:16px 20px;border-bottom:1px solid var(--glass-border);font-size:.88rem}
+.comm-table tr:last-child td{border-bottom:none}
+.comm-table tr:hover td{background:rgba(255,153,0,.05)}
+.comm-pct{font-weight:900;color:var(--amazon);font-size:1.05rem}
+
+/* HOW IT WORKS */
+.how{padding:0 8% 80px}
+.how h2{font-family:'Bebas Neue',sans-serif;font-size:3rem;margin-bottom:40px}
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.step{background:rgba(255,255,255,.03);border:1px solid var(--glass-border);border-radius:16px;padding:32px;transition:.4s;position:relative}
+.step:hover{border-color:var(--amazon);transform:translateY(-6px)}
+.step::after{content:'→';position:absolute;right:-20px;top:50%;transform:translateY(-50%);color:var(--amazon);font-size:1.5rem;font-weight:900}
+.step:last-child::after{display:none}
+.step-num{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:rgba(255,153,0,.2);line-height:1;margin-bottom:14px}
+.step h3{font-size:1rem;font-weight:900;margin-bottom:10px}
+.step p{color:var(--text-dim);font-size:.84rem;line-height:1.5}
+
+/* TIERS */
+.tiers{padding:0 8% 80px}
+.tiers h2{font-family:'Bebas Neue',sans-serif;font-size:3rem;margin-bottom:40px}
+.tiers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.tier{background:rgba(255,255,255,.03);border:1px solid var(--glass-border);border-radius:20px;padding:38px 30px;transition:.4s;text-align:center}
+.tier.featured{border-color:var(--amazon);background:rgba(255,153,0,.06)}
+.tier:hover{transform:translateY(-8px)}
+.tier-badge{display:inline-block;padding:5px 18px;border-radius:50px;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px}
+.tier-badge.bronze{background:rgba(205,127,50,.2);color:#CD7F32}
+.tier-badge.silver{background:rgba(192,192,192,.2);color:#C0C0C0}
+.tier-badge.gold{background:rgba(255,215,0,.2);color:var(--gold)}
+.tier h3{font-size:1.3rem;font-weight:900;margin-bottom:8px}
+.tier .sales{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:var(--text-dim);margin-bottom:18px}
+.tier .rate{font-family:'Bebas Neue',sans-serif;font-size:4rem;color:var(--amazon);line-height:1;margin-bottom:6px}
+.tier .rate-label{font-size:.75rem;color:var(--text-dim);font-weight:700;text-transform:uppercase;margin-bottom:24px}
+.tier ul{list-style:none;text-align:left}
+.tier li{display:flex;gap:10px;margin-bottom:10px;font-size:.85rem;color:var(--text-dim);line-height:1.4}
+.tier li::before{content:'✓';color:var(--amazon);font-weight:900;flex-shrink:0}
+.tier-cta{display:block;margin-top:28px;background:var(--amazon);color:#000;padding:13px;border-radius:50px;font-weight:900;text-decoration:none;font-size:.88rem;transition:.3s}
+.tier-cta:hover{background:#ffb020}
+
+footer{background:#000;padding:40px 8%;text-align:center;color:var(--text-dim);font-size:.8rem;border-top:1px solid var(--glass-border)}
+.floating-chatbot{position:fixed;bottom:30px;right:30px;width:60px;height:60px;background:var(--amazon);color:#000;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;z-index:9999;text-decoration:none;animation:pulse-chat 2s infinite}
+@keyframes pulse-chat{0%{box-shadow:0 0 0 0 rgba(255,153,0,.6)}70%{box-shadow:0 0 0 18px rgba(255,153,0,0)}100%{box-shadow:0 0 0 0 rgba(255,153,0,0)}}
+@media(max-width:768px){.steps-grid{grid-template-columns:repeat(2,1fr)}.tiers-grid{grid-template-columns:1fr}.step::after{display:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">AMZN<span>·PULSE</span></a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blog</a>
+    <a href="Affiliate.html" style="color:var(--amazon)">Affiliate</a>
+    <a href="promotions.html">Promotions</a>
+    <a href="Contact.html">Contact</a>
+    <a href="login.html" class="login-btn">Dashboard</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-badge">💛 Amazon Associates Program</div>
+  <h1>EARN WITH<br><span>AMAZON</span></h1>
+  <p>Join 900,000+ Amazon Associates earning commissions on every product they recommend. The world's largest and most trusted affiliate programme.</p>
+  <div class="hero-cta">
+    <a href="#join" class="btn-p">Join Associates Free</a>
+    <a href="#commissions" class="btn-g">See Commission Rates</a>
+  </div>
+</section>
+
+<section class="how">
+  <h2>HOW IT WORKS</h2>
+  <div class="steps-grid">
+    <div class="step"><div class="step-num">01</div><h3>Sign Up Free</h3><p>Create your Amazon Associates account. No fees, no minimum traffic requirements to start.</p></div>
+    <div class="step"><div class="step-num">02</div><h3>Get Your Links</h3><p>Generate affiliate links for any Amazon product using your unique Associate ID and the SiteStripe toolbar.</p></div>
+    <div class="step"><div class="step-num">03</div><h3>Share Everywhere</h3><p>Post your links on blogs, social media, YouTube, email newsletters, or any content platform you run.</p></div>
+    <div class="step"><div class="step-num">04</div><h3>Earn Commissions</h3><p>Earn up to 10% on qualifying purchases. Cookie tracks for 24 hours — any product the buyer adds earns you commission.</p></div>
+  </div>
+</section>
+
+<section class="commissions" id="commissions">
+  <h2>COMMISSION RATES BY CATEGORY</h2>
+  <p class="sub">Earn different percentages depending on the product category. Some categories like luxury beauty pay up to 10%.</p>
+  <div class="table-wrap">
+    <table class="comm-table">
+      <thead><tr><th>Product Category</th><th>Fixed Rate</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Luxury Beauty & Amazon Explore</td><td><span class="comm-pct">10%</span></td><td>Highest earning category</td></tr>
+        <tr><td>Amazon Games</td><td><span class="comm-pct">20%</span></td><td>Special program rate</td></tr>
+        <tr><td>Apparel & Accessories, Jewellery</td><td><span class="comm-pct">4%</span></td><td>Fashion & lifestyle</td></tr>
+        <tr><td>Beauty, Health & Personal Care</td><td><span class="comm-pct">3%</span></td><td>Massive volume category</td></tr>
+        <tr><td>Electronics, Computers</td><td><span class="comm-pct">2.5%</span></td><td>High AOV items</td></tr>
+        <tr><td>Home & Kitchen, Pets</td><td><span class="comm-pct">3%</span></td><td>Repeat purchase potential</td></tr>
+        <tr><td>Sports & Outdoors, Toys</td><td><span class="comm-pct">3%</span></td><td>Seasonal spikes</td></tr>
+        <tr><td>Amazon Devices (Echo, Fire, Kindle)</td><td><span class="comm-pct">4%</span></td><td>High loyalty category</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="tiers" id="join">
+  <h2>AMZN·PULSE AFFILIATE TIERS</h2>
+  <div class="tiers-grid">
+    <div class="tier">
+      <span class="tier-badge bronze">Bronze</span>
+      <h3>Starter Creator</h3>
+      <div class="sales">0–50 sales/month</div>
+      <div class="rate">Base</div>
+      <div class="rate-label">Commission Rate</div>
+      <ul>
+        <li>Access to all product links</li>
+        <li>Standard SiteStripe toolbar</li>
+        <li>Basic analytics dashboard</li>
+        <li>Monthly payment threshold $10</li>
+      </ul>
+      <a href="#" class="tier-cta">Get Started Free</a>
+    </div>
+    <div class="tier featured">
+      <span class="tier-badge gold">Gold — Most Popular</span>
+      <h3>Power Seller</h3>
+      <div class="sales">51–500 sales/month</div>
+      <div class="rate">+1.5%</div>
+      <div class="rate-label">Bonus Rate</div>
+      <ul>
+        <li>Everything in Bronze</li>
+        <li>Priority link generation</li>
+        <li>Advanced conversion analytics</li>
+        <li>Weekly deal alert emails</li>
+        <li>Dedicated affiliate manager</li>
+      </ul>
+      <a href="#" class="tier-cta">Upgrade to Gold</a>
+    </div>
+    <div class="tier">
+      <span class="tier-badge silver">Platinum</span>
+      <h3>Elite Partner</h3>
+      <div class="sales">500+ sales/month</div>
+      <div class="rate">+3%</div>
+      <div class="rate-label">Bonus Rate</div>
+      <ul>
+        <li>Everything in Gold</li>
+        <li>Custom landing page creation</li>
+        <li>Exclusive Lightning Deal early access</li>
+        <li>Co-branded content support</li>
+        <li>White-glove account management</li>
+      </ul>
+      <a href="#" class="tier-cta">Apply for Platinum</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 AMZN·PULSE — AMAZON ASSOCIATES AFFILIATE PROGRAM</footer>
+<a href="chatbot.html" class="floating-chatbot"><i class="fa-solid fa-comment-dots"></i></a>
+
+<script>
+const observer=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.style.opacity='1';x.target.style.transform='translateY(0)'}})},{threshold:0.1});
+document.querySelectorAll('.step,.tier').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(30px)';el.style.transition='0.6s ease';observer.observe(el)});
+</script>
+</body>
+</html>
